@@ -1,0 +1,64 @@
+(DEFINE_PUZZLE einstein_riddle
+  "Solve the Einstein's Riddle logic puzzle based on the provided Lojban constraints."
+
+  (DEFINE_DOMAINS
+    (DOMAIN house_number (1 2 3 4 5))
+    (DOMAIN color ("Red" "Green" "White" "Yellow" "Blue"))
+    (DOMAIN nationality ("Brit" "Swede" "Dane" "Norwegian" "German"))
+    (DOMAIN drink ("Tea" "Coffee" "Milk" "Beer" "Water"))
+    (DOMAIN smoke ("Pall Mall" "Dunhill" "Blends" "Bluemaster" "Prince"))
+    (DOMAIN pet ("Dog" "Bird" "Cat" "Horse" "Fish"))
+  )
+
+  (DEFINE_CONSTRAINTS
+    ; 1. The Brit lives in the Red house.
+    (ASSERT (exists (p) (and (is_a p "person") (has_nationality p "Brit") (lives_in_color p "Red"))))
+    
+    ; 2. The Swede keeps Dogs as pets.
+    (ASSERT (exists (p) (and (is_a p "person") (has_nationality p "Swede") (keeps_pet p "Dog"))))
+    
+    ; 3. The Dane drinks Tea.
+    (ASSERT (exists (p) (and (is_a p "person") (has_nationality p "Dane") (drinks p "Tea"))))
+
+    ; 4. The Green house is on the immediate left of the White house.
+    (ASSERT (exists (h1 h2) (and (is_a h1 "house") (has_color h1 "Green") (is_a h2 "house") (has_color h2 "White") (is_left_of h1 h2))))
+
+    ; 5. The Green house's owner drinks Coffee.
+    (ASSERT (exists (p h) (and (is_a p "person") (is_a h "house") (has_color h "Green") (lives_in p h) (drinks p "Coffee"))))
+
+    ; 6. The person who smokes Pall Mall rears Birds.
+    (ASSERT (exists (p) (and (is_a p "person") (smokes p "Pall Mall") (keeps_pet p "Bird"))))
+
+    ; 7. The owner of the Yellow house smokes Dunhill.
+    (ASSERT (exists (p h) (and (is_a p "person") (is_a h "house") (has_color h "Yellow") (lives_in p h) (smokes p "Dunhill"))))
+
+    ; 8. The man living in house number 3 drinks Milk.
+    (ASSERT (exists (p h) (and (is_a p "person") (is_a h "house") (has_number h 3) (lives_in p h) (drinks p "Milk"))))
+
+    ; 9. The Norwegian lives in house number 1.
+    (ASSERT (exists (p h) (and (is_a p "person") (has_nationality p "Norwegian") (is_a h "house") (has_number h 1) (lives_in p h))))
+
+    ; 10. The person who smokes Blends lives next to the one who keeps Cats.
+    (ASSERT (exists (p1 p2 h1 h2) (and (is_a p1 "person") (smokes p1 "Blends") (is_a p2 "person") (keeps_pet p2 "Cat") (lives_in p1 h1) (lives_in p2 h2) (is_neighbor_of h1 h2))))
+
+    ; 11. The person who keeps Horses lives next to the person who smokes Dunhill.
+    (ASSERT (exists (p1 p2 h1 h2) (and (is_a p1 "person") (keeps_pet p1 "Horse") (is_a p2 "person") (smokes p2 "Dunhill") (lives_in p1 h1) (lives_in p2 h2) (is_neighbor_of h1 h2))))
+
+    ; 12. The owner who smokes Bluemaster drinks Beer.
+    (ASSERT (exists (p) (and (is_a p "person") (smokes p "Bluemaster") (drinks p "Beer"))))
+
+    ; 13. The German smokes Prince.
+    (ASSERT (exists (p) (and (is_a p "person") (has_nationality p "German") (smokes p "Prince"))))
+
+    ; 14. The Norwegian lives next to the Blue house.
+    (ASSERT (exists (p1 h1 h2) (and (is_a p1 "person") (has_nationality p1 "Norwegian") (is_a h1 "house") (lives_in p1 h1) (is_a h2 "house") (has_color h2 "Blue") (is_neighbor_of h1 h2))))
+
+    ; 15. The person who smokes Blends has a neighbor who drinks Water.
+    (ASSERT (exists (p1 p2 h1 h2) (and (is_a p1 "person") (smokes p1 "Blends") (is_a p2 "person") (drinks p2 "Water") (lives_in p1 h1) (lives_in p2 h2) (is_neighbor_of h1 h2))))
+  )
+
+  (QUERY
+    "Who keeps the Fish?"
+    (FIND (p) (and (is_a p "person") (keeps_pet p "Fish")) (RETURN (nationality_of p)))
+  )
+)

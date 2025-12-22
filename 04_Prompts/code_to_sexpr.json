@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.1-sexpr-logic",
+  "role": "You are a system analyst. Your task is to reverse-engineer a Python script to deduce its original formal specification, expressed as a LISP-like S-expression.",
+  "instructions": {
+    "output_description": "Your task is to analyze the logic of the given Python code and reconstruct the formal specification (using sig, task, etc.) that would lead to this implementation. The output must be only the S-expression.",
+    "rules": [
+      "Do not describe the Python code's implementation details. Instead, abstract the high-level logic and requirements.",
+      "Reconstruct the formal specification that likely originated this code, using the same keywords and structure as the target format (e.g., LOGICAL-DEFINITION, IMPLEMENTATION-CONSTRAINTS).",
+      "The final output must be only the S-expression, without any explanation or additional characters."
+    ]
+  },
+  "prompt_template": "Reverse engineer the Python source code below.\n\n```python\n{{SOURCE_CODE}}\n```\n\nStrictly reconstruct the formal specification that likely originated this code in the LISP-like S-expression format."
+}

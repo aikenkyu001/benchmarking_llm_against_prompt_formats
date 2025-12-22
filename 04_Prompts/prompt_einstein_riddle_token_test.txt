@@ -1,0 +1,173 @@
+# Task: Solve Einstein's Riddle using a custom token-based language.
+
+## Language Specification
+The puzzle is defined using a custom language with the following rules:
+
+1.  **Task Definition**: The entire task is wrapped in `begin_DEFINE_TASK ... end_DEFINE_TASK`.
+2.  **Sets**: All possible items (colors, nationalities, etc.) are defined in a `begin_DEFINE_SETS` block. Each set is defined as `begin_SET <name> is "value1" "value2" ... end_SET`.
+3.  **Constraints**: The rules of the puzzle are listed in a `begin_DEFINE_CONSTRAINTS` block.
+    -   **Association**: A direct association between two attributes (e.g., "The Brit lives in the Red house") is defined as `begin_LIVES_IN with begin_HAS attribute "nationality" is "Brit" end_HAS with begin_HAS attribute "color" is "Red" end_HAS end_LIVES_IN`. The keywords `KEEPS`, `DRINKS`, `SMOKES` follow a similar pattern.
+    -   **Positional**: A positional relationship (e.g., "The Green house is on the left of the White house") is defined as `begin_IS_LEFT_OF with begin_HAS ... end_HAS is_left_of begin_HAS ... end_HAS end_IS_LEFT_OF`. `IS_NEIGHBOR_OF` follows a similar pattern.
+    -   **Direct House Assignment**: Assigning an attribute to a specific house number (e.g., "The Norwegian lives in the first house") is defined as `begin_LIVES_IN_HOUSE with begin_HAS ... end_HAS in_house "1" end_LIVES_IN_HOUSE`.
+4.  **Query**: The final question is defined in a `begin_QUERY ... end_QUERY` block.
+
+## Example
+Here is a simpler version of the puzzle and its solution using a **backtracking algorithm**, which is more efficient than brute-force.
+
+begin_DEFINE_TASK simple_riddle
+  "Solve a simple logic puzzle based on the provided constraints."
+
+  begin_DEFINE_SETS
+    begin_SET house_numbers is 1 2 end_SET
+    begin_SET nationalities is "Brit" "Swede" end_SET
+    begin_SET drinks is "Tea" "Coffee" end_SET
+  end_DEFINE_SETS
+
+  begin_DEFINE_CONSTRAINTS
+    ; 1. The Brit drinks Tea.
+    begin_DRINKS with begin_HAS attribute "nationality" is "Brit" end_HAS has begin_IS attribute "drink" is "Tea" end_IS end_DRINKS
+
+    ; 2. The Swede lives in house 2.
+    begin_LIVES_IN_HOUSE with begin_HAS attribute "nationality" is "Swede" end_HAS in_house "2" end_LIVES_IN_HOUSE
+  end_DEFINE_CONSTRAINTS
+
+  begin_QUERY
+    "Who drinks Coffee?"
+    begin_RETURN_ATTRIBUTE "nationality" for begin_DRINKS_WHAT "Coffee" end_DRINKS_WHAT
+  end_QUERY
+end_DEFINE_TASK
+
+```python
+# This is a demonstration of a backtracking solver.
+def solve_puzzle():
+    
+    # All possible items for each category
+    nationalities = ["Brit", "Swede"]
+    drinks = ["Tea", "Coffee"]
+    
+    # This list will hold the solution, where each index is a house (0-indexed)
+    solution = [{} for _ in range(2)]
+    
+    # Keep track of used items to ensure each is used only once
+    used = {
+        "nationality": set(),
+        "drink": set()
+    }
+
+    def solve(house_index):
+        # Base case: if we have filled all houses, check if the solution is valid
+        if house_index == 2:
+            # Constraint 1: The Brit drinks Tea.
+            if not any(h.get("nationality") == "Brit" and h.get("drink") == "Tea" for h in solution):
+                return False
+            # Constraint 2: The Swede lives in house 2.
+            if solution[1].get("nationality") != "Swede":
+                return False
+            return True # All constraints met
+
+        # Recursive step: Try to fill the current house (house_index)
+        for nat in nationalities:
+            if nat not in used["nationality"]:
+                solution[house_index]["nationality"] = nat
+                used["nationality"].add(nat)
+                
+                for drk in drinks:
+                    if drk not in used["drink"]:
+                        solution[house_index]["drink"] = drk
+                        used["drink"].add(drk)
+                        
+                        # Move to the next house
+                        if solve(house_index + 1):
+                            return True
+                        
+                        # Backtrack
+                        used["drink"].remove(drk)
+                
+                # Backtrack
+                used["nationality"].remove(nat)
+        
+        return False
+
+    if solve(0):
+        # Find the answer to the query "Who drinks Coffee?"
+        for h in solution:
+            if h.get("drink") == "Coffee":
+                print(h.get("nationality"))
+                return
+```
+
+## Your Task
+You are a world-class logical reasoner. Your task is to interpret the puzzle defined below according to the Language Specification, learn the efficient **backtracking** approach from the example, and apply it to solve the puzzle.
+
+**CRITICAL INSTRUCTIONS:**
+- You MUST perform all reasoning internally.
+- Your output MUST be ONLY a single Python code block.
+- The Python script MUST contain one function, `solve_puzzle()`.
+- The `solve_puzzle()` function, when executed, MUST print the single-word answer to the QUERY.
+- The function must `print()` the final answer to standard output, it must NOT `return` a value.
+
+---
+begin_DEFINE_TASK einstein_riddle
+  "Solve the Einstein's Riddle logic puzzle based on the provided constraints."
+
+  begin_DEFINE_SETS
+    begin_SET house_numbers is 1 2 3 4 5 end_SET
+    begin_SET colors is "Red" "Green" "White" "Yellow" "Blue" end_SET
+    begin_SET nationalities is "Brit" "Swede" "Dane" "Norwegian" "German" end_SET
+    begin_SET drinks is "Tea" "Coffee" "Milk" "Beer" "Water" end_SET
+    begin_SET smokes is "Pall Mall" "Dunhill" "Blends" "Bluemaster" "Prince" end_SET
+    begin_SET pets is "Dog" "Bird" "Cat" "Horse" "Fish" end_SET
+  end_DEFINE_SETS
+
+  begin_DEFINE_CONSTRAINTS
+    ; 1. The Brit lives in the Red house.
+    begin_LIVES_IN with begin_HAS attribute "nationality" is "Brit" end_HAS with begin_HAS attribute "color" is "Red" end_HAS end_LIVES_IN
+
+    ; 2. The Swede keeps Dogs as pets.
+    begin_KEEPS with begin_HAS attribute "nationality" is "Swede" end_HAS with begin_HAS attribute "pet" is "Dog" end_HAS end_KEEPS
+
+    ; 3. The Dane drinks Tea.
+    begin_DRINKS with begin_HAS attribute "nationality" is "Dane" end_HAS has begin_IS attribute "drink" is "Tea" end_IS end_DRINKS
+
+    ; 4. The Green house is on the left of the White house.
+    begin_IS_LEFT_OF with begin_HAS attribute "color" is "Green" end_HAS is_left_of begin_HAS attribute "color" is "White" end_HAS end_IS_LEFT_OF
+
+    ; 5. The Green house's owner drinks Coffee.
+    begin_DRINKS with begin_IN_HOUSE_WITH attribute "color" is "Green" end_IN_HOUSE_WITH has begin_IS attribute "drink" is "Coffee" end_IS end_DRINKS
+
+    ; 6. The person who smokes Pall Mall rears Birds.
+    begin_KEEPS with begin_HAS attribute "smokes" is "Pall Mall" end_HAS with begin_HAS attribute "pet" is "Bird" end_HAS end_KEEPS
+
+    ; 7. The owner of the Yellow house smokes Dunhill.
+    begin_SMOKES with begin_IN_HOUSE_WITH attribute "color" is "Yellow" end_IN_HOUSE_WITH has begin_IS attribute "smokes" is "Dunhill" end_IS end_SMOKES
+
+    ; 8. The man living in the center house drinks Milk.
+    begin_DRINKS with begin_IN_HOUSE number "3" end_IN_HOUSE has begin_IS attribute "drink" is "Milk" end_IS end_DRINKS
+
+    ; 9. The Norwegian lives in the first house.
+    begin_LIVES_IN_HOUSE with begin_HAS attribute "nationality" is "Norwegian" end_HAS in_house "1" end_LIVES_IN_HOUSE
+
+    ; 10. The man who smokes Blends lives next to the one who keeps Cats.
+    begin_IS_NEIGHBOR_OF with begin_HAS attribute "smokes" is "Blends" end_HAS is_neighbor_of begin_HAS attribute "pet" is "Cat" end_HAS end_IS_NEIGHBOR_OF
+
+    ; 11. The man who keeps Horses lives next to the man who smokes Dunhill.
+    begin_IS_NEIGHBOR_OF with begin_HAS attribute "pet" is "Horse" end_HAS is_neighbor_of begin_HAS attribute "smokes" is "Dunhill" end_HAS end_IS_NEIGHBOR_OF
+
+    ; 12. The owner who smokes Bluemaster drinks Beer.
+    begin_DRINKS with begin_HAS attribute "smokes" is "Bluemaster" end_HAS has begin_IS attribute "drink" is "Beer" end_IS end_DRINKS
+
+    ; 13. The German smokes Prince.
+    begin_SMOKES with begin_HAS attribute "nationality" is "German" end_HAS has begin_IS attribute "smokes" is "Prince" end_IS end_SMOKES
+
+    ; 14. The Norwegian lives next to the Blue house.
+    begin_IS_NEIGHBOR_OF with begin_HAS attribute "nationality" is "Norwegian" end_HAS is_neighbor_of begin_HAS attribute "color" is "Blue" end_HAS end_IS_NEIGHBOR_OF
+
+    ; 15. The man who smokes Blends has a neighbor who drinks Water.
+    begin_IS_NEIGHBOR_OF with begin_HAS attribute "smokes" is "Blends" end_HAS is_neighbor_of begin_DRINKS_WATER end_DRINKS_WATER end_IS_NEIGHBOR_OF
+  end_DEFINE_CONSTRAINTS
+
+  begin_QUERY
+    "Based on the constraints, determine the nationality of the person who keeps Fish as a pet."
+    begin_RETURN_ATTRIBUTE "nationality" for begin_OWNER_OF_PET "Fish" end_OWNER_OF_PET
+  end_QUERY
+end_DEFINE_TASK

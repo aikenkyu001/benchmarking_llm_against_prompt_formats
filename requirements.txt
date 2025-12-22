@@ -1,0 +1,6 @@
+requests
+pytest
+rich
+numpy
+scipy
+pandas
