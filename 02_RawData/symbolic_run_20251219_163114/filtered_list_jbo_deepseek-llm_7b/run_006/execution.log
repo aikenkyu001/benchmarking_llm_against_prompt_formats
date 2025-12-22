@@ -1,0 +1,10 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `deepseek-llm:7b`
+#### Raw LLM Response (first 500 chars):
+```
+The text appears to be a mix of English and Pidgin English. Here's the translation in simple words: "Do you know that if I put numbers from 1 to 10 on one list, it will look like this: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10. And do you know that if I put the same numbers in a different order, it will still be the same list."...
+```
+### Attempting to extract list directly from raw response (strictly): 'The text appears to be a mix of English and Pidgin English. Here's the translation in simple words: ...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

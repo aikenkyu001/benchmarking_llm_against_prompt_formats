@@ -1,0 +1,30 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `deepseek-r1:1.5b`
+#### Raw LLM Response (first 500 chars):
+```
+Para determinar cuáles son los números pares en la lista dada, seguiremos estos pasos:
+
+**Lista de números:**
+\[ [1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ 10] \]
+
+**Definición:** Un número es par si es divisible por dos sin restas.
+
+**Análisis de cada número en la lista:**
+
+1. **1**: No es par (no es divisible por 2).
+2. **2**: Es par (divisible por 2).
+3. **3**: No es par.
+4. **4**: Es par.
+5. **5**: No es par.
+6. **6**: Es par.
+7. **7**: No es par.
+8. **8**: Es par.
+9. **9**: No es par.
+10. **10**:...
+```
+### Attempting to extract list directly from raw response (strictly): 'Para determinar cuáles son los números pares en la lista dada, seguiremos estos pasos:
+
+**Lista de n...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

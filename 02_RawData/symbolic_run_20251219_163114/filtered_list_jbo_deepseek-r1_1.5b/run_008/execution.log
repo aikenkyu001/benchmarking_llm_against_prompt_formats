@@ -1,0 +1,14 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `deepseek-r1:1.5b`
+#### Raw LLM Response (first 500 chars):
+```
+It seems you're working on creating a list of achievements and want it translated into another language. Here’s how I can assist:
+
+1. **Translation Assistance**: If you need to translate specific phrases from English to another language or vice versa, feel free to share the text, and I can help with the translation.
+
+2. **Content Structuring**: If you're looking to format your list in a particular way (like HTML), please provide more details so I can guide you on how to structure it effectively....
+```
+### Attempting to extract list directly from raw response (strictly): 'It seems you're working on creating a list of achievements and want it translated into another langu...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

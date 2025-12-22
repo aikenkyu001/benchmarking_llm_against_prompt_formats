@@ -1,0 +1,17 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `deepseek-r1:8b`
+#### Raw LLM Response (first 500 chars):
+```
+好的，這看起來像是用 Lojban 語言撰寫的指令或腳本。讓我來試著理解並翻譯它：
+
+1.  `do puzu bo liste be li'i pa moi .i do puzu bo xruti pa liste be li'i re moi .i je liste be li'i re moi cu kancu loi so'e poi ke'a simsa lo'i remei be'i lista be li'i pa moi .i ku'i do na puzu bo jmina li 8`
+    *   `do puzu bo liste be li'i pa moi`：你定義一個名為 `liste` 的函數，它接受一個參數 `li'i pa`（第一個數字）。
+    *   `do puzu bo xruti pa liste be li'i re moi`：你定義一個名為 `xruti` 的函數，它接受一個參數 `li'i re`（第二個數字），並使用 `liste` 函數。
+    *   `je liste be li'i re moi cu kancu loi...
+```
+### Attempting to extract list directly from raw response (strictly): '好的，這看起來像是用 Lojban 語言撰寫的指令或腳本。讓我來試著理解並翻譯它：
+
+1.  `do puzu bo liste be li'i pa moi .i do puzu bo xruti ...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

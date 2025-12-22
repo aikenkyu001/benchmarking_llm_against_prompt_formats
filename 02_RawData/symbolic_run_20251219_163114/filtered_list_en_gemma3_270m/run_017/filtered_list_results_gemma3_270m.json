@@ -1,0 +1,20 @@
+{
+  "model": "gemma3:270m",
+  "prompt_file": "prompt_filtered_list_en.txt",
+  "timestamp": "2025-12-21T02:52:02.260446",
+  "llm_response_full": "[8, 10]",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": [
+    8,
+    10
+  ],
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

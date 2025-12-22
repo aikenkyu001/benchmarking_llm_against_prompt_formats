@@ -1,0 +1,22 @@
+{
+  "model": "gemma:7b",
+  "prompt_file": "prompt_filtered_list_en.txt",
+  "timestamp": "2025-12-19T17:58:37.448070",
+  "llm_response_full": "[2, 4, 6, 10]",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": true
+}

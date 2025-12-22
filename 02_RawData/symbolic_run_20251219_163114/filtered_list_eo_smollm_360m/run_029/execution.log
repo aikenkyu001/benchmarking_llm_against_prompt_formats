@@ -1,0 +1,23 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `smollm:360m`
+#### Raw LLM Response (first 500 chars):
+```
+Here's how you can implement this function in Python:
+
+```python
+def liston_nombroj(listo):
+    nombroj = []
+    for i in range(len(listo)):
+        if listo[i] == 1:
+            nombroj.append(listo[i])
+    return nombroj
+```...
+```
+### Attempting to extract list directly from raw response (strictly): 'Here's how you can implement this function in Python:
+
+```python
+def liston_nombroj(listo):
+    nomb...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

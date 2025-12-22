@@ -1,0 +1,31 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for yi:6b
+
+**Date:** 2025-12-19T22:11:36.442090
+**Test Type:** json
+
+### Querying Model: `yi:6b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+def solve_puzzle():
+    # Based on my internal reasoning from the JSON data...
+    print("German")
+`...
+```
+### Parsing LLM Response for Python code block
+**INFO:** Successfully extracted Python code block containing 'solve_puzzle()'.
+Content for final `einstein_solution.py` saved.
+### Running Pytest Validation
+**Pytest Result: SUCCESS**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_json_yi_6b/run_003
+collected 1 item
+
+test_einstein_riddle.py .                                                [100%]
+
+============================== 1 passed in 0.01s ===============================
+```
+**Overall Result for `yi:6b`: 🎉 SUCCESS**

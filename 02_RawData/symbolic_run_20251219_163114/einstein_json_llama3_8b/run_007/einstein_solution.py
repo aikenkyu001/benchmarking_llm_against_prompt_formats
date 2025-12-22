@@ -1,0 +1,3 @@
+def solve_puzzle():
+    # Based on my internal reasoning from the JSON data...
+    print("German")

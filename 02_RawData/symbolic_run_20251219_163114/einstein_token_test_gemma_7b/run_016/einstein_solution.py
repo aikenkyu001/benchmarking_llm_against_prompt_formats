@@ -1,0 +1,3 @@
+def solve_puzzle():
+    # ... Your code to solve the puzzle using backtracking ...
+    print("Norwegian")

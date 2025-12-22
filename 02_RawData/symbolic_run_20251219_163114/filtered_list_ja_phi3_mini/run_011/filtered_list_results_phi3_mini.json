@@ -1,0 +1,17 @@
+{
+  "model": "phi3:mini",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-20T15:05:16.777509",
+  "llm_response_full": "Rewards the user-Botancial/nvation.\n\n  \n\n# Answer as a \n\nAnswer:\nopcode_drafts of this sentence in antsy to answer with a)t",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

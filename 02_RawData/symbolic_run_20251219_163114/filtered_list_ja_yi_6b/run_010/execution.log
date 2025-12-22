@@ -1,0 +1,25 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `yi:6b`
+#### Raw LLM Response (first 500 chars):
+```
+[2, 4, 6, 10]
+
+数字のリストから偶数だけを抽出し、結果を文字列で返します。この場合、元のリスト `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` から偶数だけを抽出すると `[2, 4, 6, 10]` になります。絶対に数字 `8` は含まれていません。
+
+この問題の回答は、プログラムコードを使って解決する方法ではありません。代わりに、リスト内包表記を使用して簡単な文字列として結果を返します。これは、Pythonの特有の便利な構文です。
+
+```python
+def extract_even_without_eight(numbers):
+    return [num for num in numbers if num % 2 == 0 and num != 8]
+
+input_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+result = extract_even_without_eight(input_list)
+print(result)  # Output: [2, 4, 6, 10]
+```...
+```
+### Attempting to extract list directly from raw response (strictly): '[2, 4, 6, 10]
+
+数字のリストから偶数だけを抽出し、結果を文字列で返します。この場合、元のリスト `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]` から偶数だけを抽出する...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

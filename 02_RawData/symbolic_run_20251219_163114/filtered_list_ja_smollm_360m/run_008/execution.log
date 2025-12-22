@@ -1,0 +1,18 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `smollm:360m`
+#### Raw LLM Response (first 500 chars):
+```
+To extract the numbers from a list of strings and return them as a new list, we can use the `split` method to split each string into individual digits. We can then iterate through the list using a for loop and check if the current digit is even or odd. If it's an odd number, we can append it to the result list. If it's an even number, we can skip it and continue with the next digit.
+
+Here's how we can implement this:
+
+```python
+def extract_numbers(strings):
+    numbers = []
+
+    for string in st...
+```
+### Attempting to extract list directly from raw response (strictly): 'To extract the numbers from a list of strings and return them as a new list, we can use the `split` ...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

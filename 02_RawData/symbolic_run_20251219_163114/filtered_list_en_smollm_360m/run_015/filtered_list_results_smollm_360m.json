@@ -1,0 +1,17 @@
+{
+  "model": "smollm:360m",
+  "prompt_file": "prompt_filtered_list_en.txt",
+  "timestamp": "2025-12-20T22:38:34.435348",
+  "llm_response_full": "Here's how you can implement this function in Python:\n\n```python\ndef filter_even(numbers):\n    filtered_numbers = []\n\n    for number in numbers:\n        if number % 2 == 0:\n            filtered_numbers.append(number)\n\n    return filtered_numbers\n```",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

@@ -1,0 +1,130 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for stablelm2:1.6b
+
+**Date:** 2025-12-22T00:47:14.194374
+**Test Type:** token_test
+
+### Querying Model: `stablelm2:1.6b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+To solve this puzzle using a backtracking algorithm, we will follow these steps:
+
+1. Define the sets...
+```
+### Parsing LLM Response for Python code block
+**INFO:** Successfully extracted Python code block containing 'solve_puzzle()'.
+Content for final `einstein_solution.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_token_test_stablelm2_1.6b/run_027
+collected 1 item
+
+test_einstein_riddle.py F                                                [100%]
+
+=================================== FAILURES ===================================
+________________________ test_einstein_riddle_solution _________________________
+
+    def test_einstein_riddle_solution():
+        """
+        Tests the output of the LLM-generated solve_puzzle function.
+        It imports the function directly and captures its standard output.
+        """
+        solution_file = "einstein_solution.py"
+        expected_answer = "German"
+    
+        try:
+            # Dynamically import the generated function
+>           from einstein_solution import solve_puzzle
+
+test_einstein_riddle.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def solve_puzzle():
+        # Define the sets and constraints
+        house_numbers = [1, 2, 3, 4, 5]
+        colors = ["Red", "Green", "White", "Yellow", "Blue"]
+        nationalities = ["Brit", "Swede", "Dane", "Norwegian", "German"]
+        drinks = ["Tea", "Coffee", "Milk", "Beer", "Water"]
+        smokes = ["Pall Mall", "Dunhill", "Blends", "Bluemaster", "Prince"]
+        pets = ["Dog", "Bird", "Cat", "Horse", "Fish"]
+        smokes_adj = {"Red": [], "Green": [], "Blue": []}
+        drinks_adj = {"Tea": [], "Coffee": [], "Milk": [], "Beer": [], "Water": []}
+    
+        # Define the backtracking function
+        def backtrack(house_index, pet):
+            if house_index == 2:
+                # Constraint 1: The Brit lives in the Red house.
+                if not any(nationality for nationality in nationalities if nationality != pet) or \
+                    not any(drink for drink in drinks_adj if drink != "Tea" and drink != "Coffee") or \
+                    not any(smoke for smoke in smokes_adj if smoke != "Pall Mall" and smoke != "Dunhill"):
+                    return True
+                # Constraint 2: The Swede keeps Dogs as pets.
+                if pet == "Dog":
+                    return True
+                # Constraint 3: The Dane drinks Tea.
+                if tea not in drinks_adj:
+                    return True
+                # Constraint 4: The Green house is on the left of the White house.
+                if green_house_index not in house_numbers:
+                    return True
+                # Constraint 5: The Green house' owner drinks Coffee.
+                if coffee not in drinks_adj:
+                    return True
+                # Constraint 6: The person who smokes Pall Mall rears Birds.
+                if pall_mall_not_in_smokes_adj:
+                    return True
+                # Constraint 7: The owner of the Yellow house smokes Dunhill.
+                if yellow_house_index not in house_numbers:
+                    return True
+                # Constraint 8: The man living in the center house drinks Milk.
+                if milk_not_in_drinks_adj:
+                    return True
+                # Constraint 9: The Norwegian lives in the first house.
+                if norwegian_not_in_houses_adj:
+                    return True
+    
+            # If none of the constraints are met, backtrack to try a different pet and house index
+            for i in range(len(nationalities)):
+                if nationalities[i] not in used_nationalities:  # Check if the nationality is already used
+                    used_nationalities.add(nationalities[i])
+                    used_smokes_adj[nationality].append(smoke)
+                    used_drinks_adj[drink].append(tea)
+                    used_houses_adj.append(house_index + 1)
+                    if solve(house_index + 1, i):
+                        return True
+                    used_nationalities.remove(nationalities[i])
+                    used_smokes_adj[nationality].remove(smoke)
+                    used_drinks_adj[drink].remove(tea)
+                    used_houses_adj.remove(house_index + 1)
+    
+            return False
+    
+        # Start the backtracking process with house index 0 and pet "Dog"
+        if solve(0, "Dog"):
+            print("The Norwegian's nationality is:", nationalities[pet - 1])
+            return
+        else:
+            print("No solution found.")
+    
+    # Define the sets for each category
+    sets = {
+>       "house_numbers": [i for i in range(len(house_numbers))],
+        "nationalities": ["".join(nationality) for nationality in nationalities],
+        "drinks": ["".join(drink) for drink in drinks],
+        "smokes": ["".join(smoke) for smoke in smokes],
+        "pets": ["".join(pet) for pet in pets],
+        "smokes_adj": {"Red": [], "Green": [], "Blue": []},
+        "drinks_adj": {"Tea": [], "Coffee": [], "Milk": [], "Beer": [], "Water": []}
+    }
+E   NameError: name 'house_numbers' is not defined
+
+einstein_solution.py:70: NameError
+=========================== short test summary info ============================
+FAILED test_einstein_riddle.py::test_einstein_riddle_solution - NameError: na...
+============================== 1 failed in 0.02s ===============================
+```
+**Overall Result for `stablelm2:1.6b`: ❌ FAILURE**

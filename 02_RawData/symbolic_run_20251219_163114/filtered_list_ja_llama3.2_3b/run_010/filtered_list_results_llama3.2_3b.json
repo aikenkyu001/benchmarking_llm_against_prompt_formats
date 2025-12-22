@@ -1,0 +1,17 @@
+{
+  "model": "llama3.2:3b",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-20T12:47:01.850073",
+  "llm_response_full": "def filter_even_numbers(lst):\n    return [str(i) for i in lst if i % 2 == 0 and i != 8]\n\nprint(filter_even_numbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

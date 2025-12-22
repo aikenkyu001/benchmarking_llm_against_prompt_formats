@@ -1,0 +1,17 @@
+{
+  "model": "qwen:0.5b",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-19T16:40:57.302907",
+  "llm_response_full": "入力: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

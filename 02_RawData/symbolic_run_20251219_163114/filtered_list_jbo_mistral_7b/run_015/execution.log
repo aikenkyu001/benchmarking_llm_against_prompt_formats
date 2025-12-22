@@ -1,0 +1,15 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `mistral:7b`
+#### Raw LLM Response (first 500 chars):
+```
+It seems like you are trying to create a list in the constructed language of Lojban, but there are some errors. Here's how you can correctly write the sentences:
+
+1. To create a list, use the bridi "cu" followed by the sumti "lo liste". Each item in the list is a separate sumti. For example:
+   - "mi cu lo liste do .i mi do .i lu do .i le nu do" (I am a list. I am one. You are two. She/He/It is three.)
+
+2. To create a numbered list, use the predicate "jmina" followed by the number and the items ...
+```
+### Attempting to extract list directly from raw response (strictly): 'It seems like you are trying to create a list in the constructed language of Lojban, but there are s...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

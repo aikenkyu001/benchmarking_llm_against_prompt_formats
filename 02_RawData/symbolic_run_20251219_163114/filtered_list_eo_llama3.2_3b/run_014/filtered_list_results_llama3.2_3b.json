@@ -1,0 +1,27 @@
+{
+  "model": "llama3.2:3b",
+  "prompt_file": "prompt_filtered_list_eo.txt",
+  "timestamp": "2025-12-20T21:21:30.478989",
+  "llm_response_full": "[1, 2, 3, 4, 5, 6, 7, 9, 10]",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10
+  ],
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

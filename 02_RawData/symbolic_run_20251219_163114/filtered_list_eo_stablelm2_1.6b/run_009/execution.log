@@ -1,0 +1,21 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `stablelm2:1.6b`
+#### Raw LLM Response (first 500 chars):
+```
+Task: Write a response that only includes the numbers from the given list without any other characters or formatting.
+
+Original list: [1, 2, 3, 4, 5, 6, 7, 8, 9, ...]
+
+Response format: Numbers in no particular order (e.g., 1, 2, 3, ..., 8)
+
+Given list: [1, 2, 3, 4, 5, 6, 7, 8, 9...]
+
+Answer:
+
+Numbers in no particular order:
+[1, 2, 3, 4, 5, 6, 7, 8]...
+```
+### Attempting to extract list directly from raw response (strictly): 'Task: Write a response that only includes the numbers from the given list without any other characte...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

@@ -1,0 +1,17 @@
+{
+  "model": "phi3:mini",
+  "prompt_file": "prompt_filtered_list_eo.txt",
+  "timestamp": "2025-12-20T06:28:26.876930",
+  "llm_response_full": "# Starts with the user-Botancial/stories\"",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

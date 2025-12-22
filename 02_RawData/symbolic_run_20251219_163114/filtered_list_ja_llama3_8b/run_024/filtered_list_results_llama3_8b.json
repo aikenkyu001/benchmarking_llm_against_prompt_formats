@@ -1,0 +1,22 @@
+{
+  "model": "llama3:8b",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-21T19:51:58.501914",
+  "llm_response_full": "[2, 4, 6, 10]",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": true
+}

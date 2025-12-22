@@ -1,0 +1,20 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `llama3:8b`
+#### Raw LLM Response (first 500 chars):
+```
+A Lojban text!
+
+Here's my attempt to translate and summarize it:
+
+The speaker is discussing a list (liste be li'i) of some kind. They mention that the list has two parts: one part (pa moi) and another part (re moi). The first part contains items that are not specified, but the second part contains items from 1 to 10.
+
+The speaker then says that they will provide a script (finti lo skripti) for creating this list. They also mention that there is a "spusku" (a Lojban term that can be translated as...
+```
+### Attempting to extract list directly from raw response (strictly): 'A Lojban text!
+
+Here's my attempt to translate and summarize it:
+
+The speaker is discussing a list (...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

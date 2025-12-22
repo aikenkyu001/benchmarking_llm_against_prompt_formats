@@ -1,0 +1,17 @@
+{
+  "model": "gemma3:270m",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-21T22:01:36.907066",
+  "llm_response_full": "```python\ndef extract_numbers(input_list):\n    \"\"\"\n    数字のリストから偶数だけを抽出した新しいリストを返します。\n    偶数だけを抽出した新しいリストは、元のリストの偶数のみを返します。\n    \"\"\"\n    numbers = []\n    for num in input_list:\n        if num % 2 == 0:\n            numbers.append(num)\n    return numbers\n```",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

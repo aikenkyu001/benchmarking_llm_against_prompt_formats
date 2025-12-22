@@ -1,0 +1,17 @@
+{
+  "model": "gemma:2b",
+  "prompt_file": "prompt_filtered_list_eo.txt",
+  "timestamp": "2025-12-21T16:23:19.579075",
+  "llm_response_full": "8",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

@@ -1,0 +1,17 @@
+{
+  "model": "gemma:7b",
+  "prompt_file": "prompt_filtered_list_jbo.txt",
+  "timestamp": "2025-12-21T19:09:37.873737",
+  "llm_response_full": "1. 8\n2. 1\n3. 2\n4. 3\n5. 4\n6. 5\n7. 6\n8. 7\n9. 9\n10. 10",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

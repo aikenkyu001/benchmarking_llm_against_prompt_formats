@@ -1,0 +1,21 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `tinyllama:1.1b`
+#### Raw LLM Response (first 500 chars):
+```
+To extract only odd numbers from a given list of integers, you can use the `range()` function with a step of 2. Here's an example:
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+odd_numbers = list(map(lambda x: x if x % 2 == 1 else None, range(len(numbers), len(numbers) + 1, 2)))
+print(odd_numbers)
+```
+
+Output:
+```
+[7, 9, 10]
+```...
+```
+### Attempting to extract list directly from raw response (strictly): 'To extract only odd numbers from a given list of integers, you can use the `range()` function with a...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

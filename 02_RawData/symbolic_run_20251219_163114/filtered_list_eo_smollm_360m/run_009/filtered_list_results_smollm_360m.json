@@ -1,0 +1,17 @@
+{
+  "model": "smollm:360m",
+  "prompt_file": "prompt_filtered_list_eo.txt",
+  "timestamp": "2025-12-20T09:45:27.947427",
+  "llm_response_full": "Here's how you can implement this function in Python:\n\n```python\ndef liston_nombroj(listo):\n    nombroj = []\n    for i in range(len(listo)):\n        if listo[i] == 1:\n            nombroj.append(listo[i])\n    return nombroj\n```",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

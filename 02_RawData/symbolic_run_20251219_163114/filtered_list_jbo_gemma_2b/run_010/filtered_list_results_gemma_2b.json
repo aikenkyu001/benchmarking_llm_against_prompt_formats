@@ -1,0 +1,17 @@
+{
+  "model": "gemma:2b",
+  "prompt_file": "prompt_filtered_list_jbo.txt",
+  "timestamp": "2025-12-20T12:37:04.335183",
+  "llm_response_full": "```python\nli_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\nprint(\"L'elenco originale:\")\nprint(li_list)\n\n# Sposta 8 elementi nella lista\nprint(\"L'elenco dopo la sostituzione:\")\nli_list[:] = range(8)\nprint(li_list)\n```",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

@@ -1,0 +1,17 @@
+{
+  "model": "falcon3:3b",
+  "prompt_file": "prompt_filtered_list_ja.txt",
+  "timestamp": "2025-12-21T07:53:21.900804",
+  "llm_response_full": "```python\n# Given list\nnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\n# Filter out odd numbers to get only even numbers\neven_numbers = [num for num in numbers if num % 2 == 0]\n\nprint(even_numbers)\n```\n\n結果: `[2, 4, 6, 8, 10]`",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

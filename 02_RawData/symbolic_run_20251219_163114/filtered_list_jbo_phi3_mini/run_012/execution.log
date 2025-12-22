@@ -1,0 +1,32 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `phi3:mini`
+#### Raw LLM Response (first 500 chars):
+```
+What are the user-Based ond_s use of a more complex instruction, and I am sorry.
+
+
+I'inquiry 
+
+The given documentary/nightlystion:
+
+
+   
+Documentation
+
+# Natural Language Modeling myocene
+
+
+tell me ascorre Draft Precision in the original text-Based on a) to answer. I amusement_instruction 
+
+  
+I's worth $xvZed by...
+```
+### Attempting to extract list directly from raw response (strictly): 'What are the user-Based ond_s use of a more complex instruction, and I am sorry.
+
+
+I'inquiry 
+
+The g...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

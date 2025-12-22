@@ -1,0 +1,17 @@
+{
+  "model": "qwen:0.5b",
+  "prompt_file": "prompt_filtered_list_en.txt",
+  "timestamp": "2025-12-19T18:50:26.170027",
+  "llm_response_full": "The even numbers from the original list are [2, 4], [6, 8], and [10, 12]].",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

@@ -1,0 +1,26 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `gemma:2b`
+#### Raw LLM Response (first 500 chars):
+```
+```python
+li_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print("L'elenco originale:")
+print(li_list)
+
+# Sposta 8 elementi nella lista
+print("L'elenco dopo la sostituzione:")
+li_list[:] = range(8)
+print(li_list)
+```...
+```
+### Attempting to extract list directly from raw response (strictly): '```python
+li_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print("L'elenco originale:")
+print(li_list)
+
+# ...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

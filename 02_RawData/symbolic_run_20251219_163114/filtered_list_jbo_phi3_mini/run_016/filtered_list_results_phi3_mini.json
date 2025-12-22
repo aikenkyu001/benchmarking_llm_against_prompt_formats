@@ -1,0 +1,17 @@
+{
+  "model": "phi3:mini",
+  "prompt_file": "prompt_filtered_list_jbo.txt",
+  "timestamp": "2025-12-21T01:47:10.711066",
+  "llm_response_full": "What are the user-Based ond_s use of a more complex instruction, and I am sorry.\n\n\nI'inquiry \n\nThe given documentary/nightlystion:\n\n\n   \nDocumentation\n\n# Natural Language Modeling myocene\n\n\ntell me ascorre Draft Precision in the original text-Based on a) to answer. I amusement_instruction \n\n  \nI's worth $xvZed by",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

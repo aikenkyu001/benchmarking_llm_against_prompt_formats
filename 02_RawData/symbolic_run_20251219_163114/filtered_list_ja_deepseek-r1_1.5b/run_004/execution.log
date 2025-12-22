@@ -1,0 +1,24 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `deepseek-r1:1.5b`
+#### Raw LLM Response (first 500 chars):
+```
+```python
+# 入力の数字のリストを指定
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# 偶数を抽出し、数字 `8` を exclusion
+result = [num for num in digits if num % 2 == 0 and num != 8]
+
+# 最终的な结果を表示
+print(result)
+```...
+```
+### Attempting to extract list directly from raw response (strictly): '```python
+# 入力の数字のリストを指定
+digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# 偶数を抽出し、数字 `8` を exclusion
+resul...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE

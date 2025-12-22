@@ -1,0 +1,16 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for qwen:1.8b
+
+**Date:** 2025-12-21T20:33:34.391810
+**Test Type:** token_test
+
+### Querying Model: `qwen:1.8b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+``` is.defined in `begin` with `is_【`[**`[**` in its**` in the_ **`for` in a... `FOR
+    **` are  ``...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

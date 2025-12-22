@@ -1,0 +1,140 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for llama3:8b
+
+**Date:** 2025-12-21T17:43:12.075126
+**Test Type:** token_test
+
+### Querying Model: `llama3:8b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+Here is the Python code block that solves the Einstein's Riddle logic puzzle:
+
+```python
+def solve_p...
+```
+### Parsing LLM Response for Python code block
+**INFO:** Successfully extracted Python code block containing 'solve_puzzle()'.
+Content for final `einstein_solution.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_token_test_llama3_8b/run_023
+collected 1 item
+
+test_einstein_riddle.py F                                                [100%]
+
+=================================== FAILURES ===================================
+________________________ test_einstein_riddle_solution _________________________
+
+    def test_einstein_riddle_solution():
+        """
+        Tests the output of the LLM-generated solve_puzzle function.
+        It imports the function directly and captures its standard output.
+        """
+        solution_file = "einstein_solution.py"
+        expected_answer = "German"
+    
+        try:
+            # Dynamically import the generated function
+            from einstein_solution import solve_puzzle
+        except ImportError:
+            pytest.fail(f"Could not import 'solve_puzzle' from '{solution_file}'. The file might be missing or contain syntax errors.")
+    
+        captured_output = ""
+        try:
+            # Capture standard output from the function call
+            with io.StringIO() as buf, contextlib.redirect_stdout(buf):
+>               solve_puzzle()
+
+test_einstein_riddle.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+einstein_solution.py:54: in solve_puzzle
+    if solve(0):
+einstein_solution.py:37: in solve
+    if solve(house_index + 1):
+einstein_solution.py:37: in solve
+    if solve(house_index + 1):
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+house_index = 2
+
+    def solve(house_index):
+        if house_index == 5:
+            return True
+    
+        for nat in nationalities:
+            if nat not in used["nationality"]:
+                used["nationality"].add(nat)
+    
+                for drk in drinks:
+                    if drk not in used["drink"]:
+                        used["drink"].add(drk)
+    
+                        for smk in smokes:
+                            if smk not in used["smoke"]:
+                                used["smoke"].add(smk)
+    
+                                for pet in pets:
+                                    if pet not in used["pet"]:
+                                        used["pet"].add(pet)
+    
+                                        # Move to the next house
+                                        if solve(house_index + 1):
+                                            return True
+    
+                                        # Backtrack
+                                        used["pet"].remove(pet)
+    
+                                # Backtrack
+                                used["smoke"].remove(smk)
+    
+                            # Backtrack
+>                           used["drink"].remove(drk)
+E                           KeyError: 'Coffee'
+
+einstein_solution.py:47: KeyError
+
+During handling of the above exception, another exception occurred:
+
+    def test_einstein_riddle_solution():
+        """
+        Tests the output of the LLM-generated solve_puzzle function.
+        It imports the function directly and captures its standard output.
+        """
+        solution_file = "einstein_solution.py"
+        expected_answer = "German"
+    
+        try:
+            # Dynamically import the generated function
+            from einstein_solution import solve_puzzle
+        except ImportError:
+            pytest.fail(f"Could not import 'solve_puzzle' from '{solution_file}'. The file might be missing or contain syntax errors.")
+    
+        captured_output = ""
+        try:
+            # Capture standard output from the function call
+            with io.StringIO() as buf, contextlib.redirect_stdout(buf):
+                solve_puzzle()
+                captured_output = buf.getvalue().strip()
+    
+            print(f"Captured output from solve_puzzle(): '{captured_output}'")
+            print(f"Expected answer: '{expected_answer}'")
+    
+            # Check if the expected answer is present in the captured output
+            assert expected_answer in captured_output, \
+                f"The puzzle solution is incorrect. Expected to find '{expected_answer}', but got '{captured_output}'."
+    
+        except Exception as e:
+>           pytest.fail(f"The 'solve_puzzle' function produced an unexpected error during execution: {e}\nCaptured output was: '{captured_output}'")
+E           Failed: The 'solve_puzzle' function produced an unexpected error during execution: 'Coffee'
+E           Captured output was: ''
+
+test_einstein_riddle.py:40: Failed
+=========================== short test summary info ============================
+FAILED test_einstein_riddle.py::test_einstein_riddle_solution - Failed: The '...
+============================== 1 failed in 0.02s ===============================
+```
+**Overall Result for `llama3:8b`: ❌ FAILURE**

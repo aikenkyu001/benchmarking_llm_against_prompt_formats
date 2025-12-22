@@ -1,0 +1,30 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `qwen:1.8b`
+#### Raw LLM Response (first 500 chars):
+```
+結果のリスト文字列として返すプログラムコード如下所示：
+```python
+# 原始的数字列表
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+
+# 遍历偶数，将它们添加到结果列表中
+even_numbers = []
+for num in numbers:
+    if num % 2 == 0:
+        even_numbers.append(num)
+
+# 将结果列表转换为字符串并返回
+result_string = str(even_numbers))
+print(result_string)
+```
+このプログラムは、原始的数字列表 `[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]```````````````````````````````...
+```
+### Attempting to extract list directly from raw response (strictly): '結果のリスト文字列として返すプログラムコード如下所示：
+```python
+# 原始的数字列表
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]
+
+# 遍历偶数，将...'
+**INFO:** Raw response contains code-like patterns. Treating as instruction violation.
+Overall Result: FAILURE
