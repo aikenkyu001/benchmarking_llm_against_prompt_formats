@@ -1,0 +1,74 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for llama3.2:3b
+
+**Date:** 2025-12-20T14:49:45.695909
+**Lang:** ja
+
+
+## Prompt File Used
+`custom_sort_ja_prompt.md`
+
+
+### Querying Model: `llama3.2:3b`
+#### Raw LLM Response (first 300 chars):
+```
+```python
+def custom_sort(string_list):
+    return sorted(string_list, key=lambda x: (len(x), x))
+```
+
+このコードは、`sorted()` 関数を使用してリストをソートします。`key` パラメータに `lambda` 関数が指定されます。この関数は、各文字列の長さとその文字列自体でソートするように指定されています。
+
+`len(x)` は文字列の長さを計算し、`x` は文字列自体です。したがって、リスト内の文字列は長さが短い順に並びます。
+
+`x` の後ろに `()` を付けることで、長さが...
+```
+## Raw LLM Response
+```
+```python
+def custom_sort(string_list):
+    return sorted(string_list, key=lambda x: (len(x), x))
+```
+
+このコードは、`sorted()` 関数を使用してリストをソートします。`key` パラメータに `lambda` 関数が指定されます。この関数は、各文字列の長さとその文字列自体でソートするように指定されています。
+
+`len(x)` は文字列の長さを計算し、`x` は文字列自体です。したがって、リスト内の文字列は長さが短い順に並びます。
+
+`x` の後ろに `()` を付けることで、長さが同じなので辞書順にソートするように指定します。つまり、アルファベット順に並びます。
+
+このコードを使用すると、入力リスト `"apple", "fig", "banana", "cherry", "date"` が出力リスト `"fig", "date", "apple", "banana", "cherry"` にソートされます。
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: SUCCESS**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_ja_llama3.2_3b/run_011
+collected 8 items
+
+test_custom_sort.py ........                                             [100%]
+
+============================== 8 passed in 0.01s ===============================
+```
+## Pytest Validation Result
+Passed: True
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_ja_llama3.2_3b/run_011
+collected 8 items
+
+test_custom_sort.py ........                                             [100%]
+
+============================== 8 passed in 0.01s ===============================
+```
+
+**Overall Result: SUCCESS**
+

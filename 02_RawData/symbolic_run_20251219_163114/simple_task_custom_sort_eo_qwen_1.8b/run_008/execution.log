@@ -1,0 +1,636 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for qwen:1.8b
+
+**Date:** 2025-12-20T08:13:52.090692
+**Lang:** eo
+
+
+## Prompt File Used
+`custom_sort_eo_prompt.md`
+
+
+### Querying Model: `qwen:1.8b`
+#### Raw LLM Response (first 300 chars):
+```
+La función `custom_sort(string_list, unua_regulo, dua_regulo)))` accepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la list...
+```
+## Raw LLM Response
+```
+La función `custom_sort(string_list, unua_regulo, dua_regulo)))` accepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordenar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por ejemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regulo = 2
+dua_regulo = 3
+
+custom_sort(string_list, unua_regulo, dua_regulo)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordenar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por ejemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regulo = 2
+dua_regulo = 3
+
+custom_sort(string_list, unua_regulo, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordenar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por ejemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regulo = 2
+dua_regulo = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordenar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regulo = 2
+dua_regulo = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordinar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regulo = 2
+dua_regulo = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regulo**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordinar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regula = 2
+dua_regula = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regula**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordinar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regula = 2
+dua_regula = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regula**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordinar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regula = 2
+dua_regula = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple","fig","banana","cherry","date"]" o similar.
+2. **unua_regula**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list`. El regulo debe incluir el nombre del elemento a ordinar (por ejemplo, "apple", "banana", "cherry") y un número entero que indica qué regulo se utiliza. Por exemplo:
+
+```python
+string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+unua_regula = 2
+dua_regula = 3
+
+custom_sort(string_list, unua_regula, dua_regula)))
+```
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "["apple", 123, "banana", 456, "cherry", 789]]),
+
+
+2. **unua_regula**: Este argumento debe ser un regulo único para ordenar la lista de strings `string_list` en formato "[ apple, 123, "banana", 456, "cherry", 789 ]".
+
+La función `custom_sort` acepta dos argumentos:
+
+1. **string_list**: Este argumento debe ser una lista de strings en formato "[apple, 123, "banana", 456, "cherry": "Python".
+
+**E:**
+
+```python
+def custom_sort(string_list):
+    ```
+
+- **A**: 
+
+```python```
+
+- **Kode:**
+
+```python```
+
+- **Kode:**:
+
+```python```
+
+- **Kode:**:
+
+```python```
+
+- **Kode:**:
+
+```python```
+
+- **Kode:**:
+
+```Python```
+
+- **Regula:**:
+```
+```
+
+- **Regulaj:**:
+
+```Python```
+
+- **Regulaj**: ```Python``. ```
+```
+
+```Python```:
+```
+```
+```
+```
+```
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+``` ```
+```:
+
+``` ```
+``` ```Python ``` ``` ``` ``` ``` ``` ```Python ```
+``` ```
+```
+
+```
+
+``` `````` ```
+```Python! ```! ```Python! ```vo ```bono ```kilo ```Python. ``` Python ```Python ```.
+``` ```
+``` ``` ```
+```:
+```:
+```
+```
+```
+```
+```
+```
+```:
+```
+```
+```
+
+```
+```
+```:
+
+```
+```
+```
+```
+```
+
+```
+```
+```
+```
+
+```
+
+```kombo ``` ``` Python. ```.
+```.
+```k ```bona ```:
+```n ```  
+```
+
+```
+
+```
+
+```
+
+```:
+```
+
+```
+
+```: ```: ```: ```Python ``` ```:
+```:
+
+```: ```
+```:
+```.
+```:
+```: ```
+```
+```:
+```:**
+```:```  
+```  
+```：
+```**:  
+
+````:  
+````
+```:
+```kolo kajn la, 
+``` ```.
+```bono. **dok ```: ```bon ```:
+
+```:```:
+
+```: ```:
+
+```:
+
+```:
+
+```:
+
+```
+
+```:
+
+```:
+```:
+
+**:
+
+```:
+```:
+```:**
+```:
+```: **`:
+
+```:.
+```:
+```konea ```
+```:
+```: ```: `:
+
+```: La Seu ```:
+```：
+````
+````
+```bon:**`:
+
+```: kons:
+
+```: ```: **: **:
+
+```** ```.
+``` ```:
+```.
+``` ```.
+La. **Dek ```.
+```.
+```k ```a la se a:
+```**
+```  
+```
+``` (`se `k ```  
+``` `[[[`
+
+```:
+```:`
+```:
+bon:** k Ĭaĵo:```k**:```:**```[tiānok**:```k Ĩ!:
+```k Ă**::
+
+**k ```:
+
+```k. **:
+```k ```:.
+**:
+
+**:
+
+**:
+
+**K**: `:
+
+**:
+```-** la:**
+```:
+**: **:**
+
+```: `:
+``:** d`：
+```:
+```:
+```:
+```:
+```:
+```：
+```:
+```:
+```:
+```:
+``` (`se`
+```k ````
+```.
+```.
+``` k. Se, se.
+```k Ă de la k.
+``` ("
+[[al**
+```**
+```[  
+```
+``` ["ala
+```
+[[]
+```: `El
+```a
+```:
+```komben!`
+```k `se`.`
+``` (``[bono (`el:
+
+```:
+```:
+```:
+
+```:
+
+```:`
+
+**de:** ("K**: `["ā:**`:
+```:
+```:
+```k **:
+
+```:
+
+```:
+
+```:
+```:
+```k
+```：
+```:
+
+**:
+
+```:
+
+```:
+```:
+
+```:
+
+``` (`se: `string. (`, la (`komb`. (`[el**
+
+[[k**:**
+```:**
+```  
+```:`
+```**
+```**
+```**
+```**
+```**
+``` (`  
+```**
+```**
+```**
+````
+```**
+```**
+```**
+```**
+```**
+```|
+```：
+``` (`  
+``` (`**` (`k ā`` (`  
+````
+``` (`[bon
+``` (`se`
+
+````(`
+
+``` (`k se. `[[kait (`  
+` (`[`.``` (`[`` (``: (`:` (`** (`** (`:
+
+``` (`[un `(k (`` (`` (`el:** (`:**
+
+``` (``:` ("[` (`k, k ī`: `**: `: (`[de (`k (`[** (`k`(`se`, `:
+
+``` (`[bono:
+
+``` (`: `[`` (`` (`a ``` (`
+```
+
+```  
+```
+```
+
+
+```:
+```! (`k, d' (`k se `$ (`[[el`. ** (`  
+``` (`fi.】
+``` (`** (`** (`** (`****:**
+``` (`se `[[** (`** (`` (`k Ă:** `** (`** (`** (`[**
+
+``` (`k ā (`k:` (`k, k:** (`dok: `de k se kuan:
+```k' ` ("k, la, la enumok``` (`la `$ kolo `$ la `$ la `$ la kolo**: La:** la `$ ("la de la (`si (`** ("se**:` ("[el:**`:
+
+``` ("[[...["[La:"[[...,"```[[**[[****
+
+```[[k se:
+
+```**
+```[[či:
+``ni, "bona.uzo`. ("k[["[[en`[[`[[k[[klici[[k: ["k[[k[[si:**[[k[[k[[k[[d la k'{"[el de k en la k'["la k'[[**[[k se**: `in k`[[k (`k do (`k. La k`(`de k'nela k'`. `ata k' la de kolo``` ["**:**`kilo**: `:
+
+```[[kilo**:[[el[][ele]:[[se[kelna la sezi[a la en la de la "[d[[k la:**
+
+``k[[k la k. La'n [[**[[**[[en (`[si' la 'el[[de k la `[la` la `in k' la `[[el`. La`[[el` (`el` ("el (`el (`se】 (`el` (`el kula (`el k` (`ki (`k en la k (`el (`k (`kene (`en la (`el (`** (`ma se` (`el de (`inik. "(`el la (`el` (`el`. La'd de (`el` (`el[[** (`el (`el (`el (`el (`dual (`el`, `el】`[el, la (`el` (`el` ("el` (`el ["la unula (`d' (`el` la de la (`el (`in (`deja (`[ala (`k ("el (`en (`k. (`da (`el (`k (`el`. (`el (`el (`el (`se`.indic (`el (`desse (`desse (`desse (`desse (`des la (`des (`des (`des (`des (`el (`des (`des (`des (`des de (`des (`des `(des (`des (`des (`des (`des (`des (`des (`des (`des (`des (`des (`des (`d `(des (`una (`des (`des (`des (`des (`des (`des (`des (`des (`des (`desse (`des (`des (`des (`des (`des (`des (`` (`` (`:` (`des`
+
+``` (`d (`des (`des (`des (`des (`des (`des (`des (`des (`el (`des (`des (`in (`des (`des (`des (`ele (`des (`des (`da (`desa (`des (`des (`des `(se (`(` (`( (`en (`des (`` (`in (`in (`ind (`des (`des (` (` (` (`des (`des (`des (`des (`des (` (`des (`des (`des (`des (` (` (` (` (` (`(" (`"` (`de (`` ("` (`des (` (` (` (` (` (` (`(` (`"` (` (`` (`` (`` (`en (`nula (`` (`un (`una (`` (`` (`"` (`"` (` (` (` (` (```` (`"` (`["` (`uest (`` (`ala (` (`` (`` (`` (`.` (`in (` (` (` (` (` (` (`(`banana (` (`(" (` (` (` (` (` (``. (`el (`` (`un (`` (`` (`` (` (" (`` (`` (`"` (`` (`` (`` (`` (`[" (`` (`` (`` (`` (`"` (` (`(`` (`` (` (`` (`` (`` (`` (`` (`` (`` (`(" (`` (`el (` (`( (`` (`` (`` (`` (`` (`` (`` (` (` (`` (`` (`` (`.` (`` (`` (`` (``
+``` (`"` (`` (`["`, (`` (`" (`"` (`` (`` (`": (`un (`una (`` (`` (`` (`se (` (` (` (` (``: (`` (`` (`` (`` (`uba (`` (`` (``. (`` (`` (``). (` (` (` (`` (``
+
+``` (`banana (` (` (`(` (`` (`
+
+```python``` `````` `````` `````` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ``` ```
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_qwen_1.8b/run_008
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+/private/test/.venv/lib/python3.9/site-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/private/test/.venv/lib/python3.9/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1030: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1007: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:986: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:680: in _load_unlocked
+    ???
+/private/test/.venv/lib/python3.9/site-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+E     File "/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_qwen_1.8b/run_008/custom_sort_solution.py", line 1
+E       string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+E                                                                 ^
+E   SyntaxError: unmatched ']'
+=========================== short test summary info ============================
+ERROR test_custom_sort.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.10s ===============================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_qwen_1.8b/run_008
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+/private/test/.venv/lib/python3.9/site-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/private/test/.venv/lib/python3.9/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1030: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1007: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:986: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:680: in _load_unlocked
+    ???
+/private/test/.venv/lib/python3.9/site-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+E     File "/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_qwen_1.8b/run_008/custom_sort_solution.py", line 1
+E       string_list = ["apple", 123, "banana", 456, "cherry", 789]]
+E                                                                 ^
+E   SyntaxError: unmatched ']'
+=========================== short test summary info ============================
+ERROR test_custom_sort.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.10s ===============================
+```
+
+**Overall Result: FAILURE**
+

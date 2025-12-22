@@ -1,0 +1,128 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for qwen:4b
+
+**Date:** 2025-12-20T06:37:59.901099
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `qwen:4b`
+#### Raw LLM Response (first 300 chars):
+```
+```python
+def custom_sort(string_list):
+    # Implement your custom sorting logic here
+    return string_list
+
+# Example usage
+string_list = ["apple", "fig", "banana", "cherry", "date"]]
+sorted_string_list = custom_sort(string_list)
+print(sorted_string_list)
+```
+
+This code defines a function `custom...
+```
+## Raw LLM Response
+```
+```python
+def custom_sort(string_list):
+    # Implement your custom sorting logic here
+    return string_list
+
+# Example usage
+string_list = ["apple", "fig", "banana", "cherry", "date"]]
+sorted_string_list = custom_sort(string_list)
+print(sorted_string_list)
+```
+
+This code defines a function `custom_sort` that takes in a list of strings as input. The function then implements your custom sorting logic here.
+
+Finally, the example usage demonstrates how to use the `custom_sort` function with an example string list.
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_qwen_4b/run_007
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+/private/test/.venv/lib/python3.9/site-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/private/test/.venv/lib/python3.9/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1030: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1007: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:986: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:680: in _load_unlocked
+    ???
+/private/test/.venv/lib/python3.9/site-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+E     File "/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_qwen_4b/run_007/custom_sort_solution.py", line 6
+E       string_list = ["apple", "fig", "banana", "cherry", "date"]]
+E                                                                 ^
+E   SyntaxError: unmatched ']'
+=========================== short test summary info ============================
+ERROR test_custom_sort.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.10s ===============================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_qwen_4b/run_007
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+/private/test/.venv/lib/python3.9/site-packages/_pytest/python.py:498: in importtestmodule
+    mod = import_path(
+/private/test/.venv/lib/python3.9/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1030: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1007: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:986: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:680: in _load_unlocked
+    ???
+/private/test/.venv/lib/python3.9/site-packages/_pytest/assertion/rewrite.py:186: in exec_module
+    exec(co, module.__dict__)
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+E     File "/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_qwen_4b/run_007/custom_sort_solution.py", line 6
+E       string_list = ["apple", "fig", "banana", "cherry", "date"]]
+E                                                                 ^
+E   SyntaxError: unmatched ']'
+=========================== short test summary info ============================
+ERROR test_custom_sort.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.10s ===============================
+```
+
+**Overall Result: FAILURE**
+

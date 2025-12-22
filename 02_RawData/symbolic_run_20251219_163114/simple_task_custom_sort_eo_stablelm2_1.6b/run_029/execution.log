@@ -1,0 +1,578 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for stablelm2:1.6b
+
+**Date:** 2025-12-22T05:02:08.289766
+**Lang:** eo
+
+
+## Prompt File Used
+`custom_sort_eo_prompt.md`
+
+
+### Querying Model: `stablelm2:1.6b`
+#### Raw LLM Response (first 300 chars):
+```
+Here's a Python function named `custom_sort` that sorts the given list of strings based on two rules:
+
+```python
+def custom_sort(string_list):
+    # Unsorted order: "fig", "date", "apple", "banana", "cherry"
+    unsorted_order = ["fig", "date", "apple", "banana", "cherry"]
+    
+    # Sort the list u...
+```
+## Raw LLM Response
+```
+Here's a Python function named `custom_sort` that sorts the given list of strings based on two rules:
+
+```python
+def custom_sort(string_list):
+    # Unsorted order: "fig", "date", "apple", "banana", "cherry"
+    unsorted_order = ["fig", "date", "apple", "banana", "cherry"]
+    
+    # Sort the list using Python's built-in sorted function with a key as a tuple
+    # The first element of the tuple is the length of the string, and the second element is the string itself
+    # This ensures that strings with the same length will be sorted alphabetically
+    sorted_list = sorted(unsorted_order, key=lambda x: (len(x), x))
+    
+    return sorted_list
+
+# Example usage:
+string_list = ["apple", "fig", "banana", "cherry", "date"]
+print(custom_sort(string_list))  # Output: ['fig', 'date', 'apple', 'banana', 'cherry']
+```
+
+This function first defines an unsorted list `unsorted_order`. Then, it sorts this list using Python's built-in `sorted` function with a key as a tuple. The tuple consists of two elements: the length of the string (to sort strings with the same length alphabetically) and the string itself (to break ties by alphabetical order). Finally, the sorted list is returned.
+
+The example usage demonstrates sorting the given list `string_list`.
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_stablelm2_1.6b/run_029
+collected 8 items
+
+test_custom_sort.py .FFFFFFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['a', 'b', 'c']
+E         
+E         At index 0 diff: 'fig' != 'a'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['long', 'tiny', 'short']
+E         
+E         At index 0 diff: 'fig' != 'long'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['ant', 'bat', 'cat']
+E         
+E         At index 0 diff: 'fig' != 'ant'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list4-expected_list4] _________________
+
+input_list = [], expected_list = []
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == []
+E         
+E         Left contains 5 more items, first extra item: 'fig'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['single']
+E         
+E         At index 0 diff: 'fig' != 'single'
+E         Left contains 4 more items, first extra item: 'date'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['2', '10', '100']
+E         
+E         At index 0 diff: 'fig' != '2'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['Apple', 'apple', 'Banana']
+E         
+E         At index 0 diff: 'fig' != 'Apple'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list4-expected_list4] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - As...
+========================= 7 failed, 1 passed in 0.03s ==========================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_stablelm2_1.6b/run_029
+collected 8 items
+
+test_custom_sort.py .FFFFFFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['a', 'b', 'c']
+E         
+E         At index 0 diff: 'fig' != 'a'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['long', 'tiny', 'short']
+E         
+E         At index 0 diff: 'fig' != 'long'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['ant', 'bat', 'cat']
+E         
+E         At index 0 diff: 'fig' != 'ant'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list4-expected_list4] _________________
+
+input_list = [], expected_list = []
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == []
+E         
+E         Left contains 5 more items, first extra item: 'fig'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['single']
+E         
+E         At index 0 diff: 'fig' != 'single'
+E         Left contains 4 more items, first extra item: 'date'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['2', '10', '100']
+E         
+E         At index 0 diff: 'fig' != '2'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['fig', 'date...na', 'cherry'] == ['Apple', 'apple', 'Banana']
+E         
+E         At index 0 diff: 'fig' != 'Apple'
+E         Left contains 2 more items, first extra item: 'banana'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list4-expected_list4] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - As...
+========================= 7 failed, 1 passed in 0.03s ==========================
+```
+
+**Overall Result: FAILURE**
+

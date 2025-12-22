@@ -1,0 +1,110 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for tinyllama:1.1b
+
+**Date:** 2025-12-22T04:36:46.640537
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `tinyllama:1.1b`
+#### Raw LLM Response (first 300 chars):
+```
+Sure, here's a Python program that sorts a list using the custom sort function:
+
+```python
+import random
+
+def custom_sort(arr):
+    # Generate a random permutation of the array
+    perm = [random.randint(0, len(arr) - 1) for _ in range(len(arr))]
+    
+    # Sort the permutation in place using the cu...
+```
+## Raw LLM Response
+```
+Sure, here's a Python program that sorts a list using the custom sort function:
+
+```python
+import random
+
+def custom_sort(arr):
+    # Generate a random permutation of the array
+    perm = [random.randint(0, len(arr) - 1) for _ in range(len(arr))]
+    
+    # Sort the permutation in place using the custom sort function
+    arr.sort(key=lambda x: x[perm])
+    
+    return arr
+
+# Generate a random list of items to be sorted
+items = ["apple", "fig", "banana", "cherry", "date"]
+
+# Call the custom sort function with the original list as input
+custom_sort(items)
+
+print(items)  # Output: ['apple', 'banana', 'cherry', 'date', 'fig']
+```
+
+In this program, we first import the `random` module to generate a random permutation of the array. We then call the custom sort function with the original list as input and pass it the sorted permutation. Finally, we print out the sorted list using the `print()` function.
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_tinyllama_1.1b/run_029
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+custom_sort_solution.py:16: in <module>
+    custom_sort(items)
+custom_sort_solution.py:8: in custom_sort
+    arr.sort(key=lambda x: x[perm])
+custom_sort_solution.py:8: in <lambda>
+    arr.sort(key=lambda x: x[perm])
+E   TypeError: string indices must be integers
+=========================== short test summary info ============================
+ERROR test_custom_sort.py - TypeError: string indices must be integers
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.07s ===============================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_tinyllama_1.1b/run_029
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+_____________________ ERROR collecting test_custom_sort.py _____________________
+test_custom_sort.py:12: in <module>
+    from custom_sort_solution import custom_sort
+custom_sort_solution.py:16: in <module>
+    custom_sort(items)
+custom_sort_solution.py:8: in custom_sort
+    arr.sort(key=lambda x: x[perm])
+custom_sort_solution.py:8: in <lambda>
+    arr.sort(key=lambda x: x[perm])
+E   TypeError: string indices must be integers
+=========================== short test summary info ============================
+ERROR test_custom_sort.py - TypeError: string indices must be integers
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.07s ===============================
+```
+
+**Overall Result: FAILURE**
+

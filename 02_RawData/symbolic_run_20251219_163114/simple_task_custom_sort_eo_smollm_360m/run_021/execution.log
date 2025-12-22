@@ -1,0 +1,140 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for smollm:360m
+
+**Date:** 2025-12-21T11:21:48.636891
+**Lang:** eo
+
+
+## Prompt File Used
+`custom_sort_eo_prompt.md`
+
+
+### Querying Model: `smollm:360m`
+#### Raw LLM Response (first 300 chars):
+```
+To implement the `custom_sort` function, we need to define a custom sorting algorithm that takes in a list of strings and returns a sorted list. We can use a combination of the `sorted` function with a custom key function to sort the strings based on their length.
+
+Here's how we can implement this:
+...
+```
+## Raw LLM Response
+```
+To implement the `custom_sort` function, we need to define a custom sorting algorithm that takes in a list of strings and returns a sorted list. We can use a combination of the `sorted` function with a custom key function to sort the strings based on their length.
+
+Here's how we can implement this:
+
+```python
+def custom_sort(string_list):
+    def custom_key(string):
+        return len(string)
+
+    sorted_list = sorted(string_list, key=custom_key)
+    return sorted_list
+```
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_smollm_360m/run_021
+collected 8 items
+
+test_custom_sort.py ...F....                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['cat', 'bat', 'ant'] == ['ant', 'bat', 'cat']
+E         
+E         At index 0 diff: 'cat' != 'ant'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - As...
+========================= 1 failed, 7 passed in 0.02s ==========================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_eo_smollm_360m/run_021
+collected 8 items
+
+test_custom_sort.py ...F....                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['cat', 'bat', 'ant'] == ['ant', 'bat', 'cat']
+E         
+E         At index 0 diff: 'cat' != 'ant'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - As...
+========================= 1 failed, 7 passed in 0.02s ==========================
+```
+
+**Overall Result: FAILURE**
+

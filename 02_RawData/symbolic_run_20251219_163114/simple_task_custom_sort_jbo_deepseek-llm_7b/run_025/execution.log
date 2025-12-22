@@ -1,0 +1,677 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for deepseek-llm:7b
+
+**Date:** 2025-12-21T21:28:20.931256
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `deepseek-llm:7b`
+#### Raw LLM Response (first 300 chars):
+```
+Lo python skripti be lo nu custom sort lo lista sekundo lo jalge, i la'e di'u cu jalge, pa kordata kafoaonu sau. I sama sau, ne otoni sau e duaoina fa'anu lenei:
+
+```python
+import string
+
+def custom_sort(selkei):
+    # sortu lo selkei sekundo lo clani be lo selkei 
+    # i lo clani be lo selkei cu s...
+```
+## Raw LLM Response
+```
+Lo python skripti be lo nu custom sort lo lista sekundo lo jalge, i la'e di'u cu jalge, pa kordata kafoaonu sau. I sama sau, ne otoni sau e duaoina fa'anu lenei:
+
+```python
+import string
+
+def custom_sort(selkei):
+    # sortu lo selkei sekundo lo clani be lo selkei 
+    # i lo clani be lo selkei cu se sortu lo jmina
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+    
+def main():
+    string_list = ["apple", "fig", "banana", "cherry", "date"]
+    
+    # sortu lo navni lista sekundo lo re jalge 
+    # i la'e di'u cu jalge:
+    # 1. pa jalge: sortu lo selkei sekundo lo clani be lo selkei 
+    #                i lo clani be lo selkei cu se sortu lo jmina
+    # 2. re jalge: ji'a lo clani be lo selkei cu simsa lo sortu 
+    #                i sortu lo selkei sekundo lo leksikografika (alfabetika) sortu
+    
+    sorted_list = custom_sort(string_list)
+    
+    print(sorted_list)
+
+if __name__ == "__main__":
+    main()
+```
+
+I sama sau, ne otoni sau e duaoina fa'anu lenei:
+
+```python
+["fig", "date", "apple", "banana", "cherry"]
+```
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_deepseek-llm_7b/run_025
+collected 8 items
+
+test_custom_sort.py FFFF.FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['apple', 'fig', 'banana', 'cherry', 'date']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105faa430>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105f9f790>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: not enough values to unpack (expected 2, got 1)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105eafd60>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105ec17f0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105f9f4f0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x106011eb0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: not enough values to unpack (expected 2, got 1)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105fac3a0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Va...
+========================= 7 failed, 1 passed in 0.04s ==========================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_deepseek-llm_7b/run_025
+collected 8 items
+
+test_custom_sort.py FFFF.FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['apple', 'fig', 'banana', 'cherry', 'date']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105faa430>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105f9f790>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: not enough values to unpack (expected 2, got 1)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105eafd60>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105ec17f0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105f9f4f0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x106011eb0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: not enough values to unpack (expected 2, got 1)
+
+custom_sort_solution.py:6: ValueError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+custom_sort_solution.py:6: in custom_sort
+    return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x105fac3a0>
+
+>   return sorted([(c, a) for c, a in selkei], key=lambda x: (x[0].lower(), x[1]))
+E   ValueError: too many values to unpack (expected 2)
+
+custom_sort_solution.py:6: ValueError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - Va...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Va...
+========================= 7 failed, 1 passed in 0.04s ==========================
+```
+
+**Overall Result: FAILURE**
+

@@ -1,0 +1,77 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for yi:6b
+
+**Date:** 2025-12-21T16:51:45.121353
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `yi:6b`
+#### Raw LLM Response (first 300 chars):
+```
+Sure! Here is a Python program that demonstrates how to use a custom sort function on a list. The program includes the `custom_sort` function which sorts a given list based on your requirements:
+
+```python
+def custom_sort(string_list):
+    # Sorting the list in ascending order of length first, then ...
+```
+## Raw LLM Response
+```
+Sure! Here is a Python program that demonstrates how to use a custom sort function on a list. The program includes the `custom_sort` function which sorts a given list based on your requirements:
+
+```python
+def custom_sort(string_list):
+    # Sorting the list in ascending order of length first, then lexicographically (alphabetically)
+    return sorted(string_list, key=lambda x: (len(x), x))
+
+# Test case
+fruit_list = ["apple", "fig", "banana", "cherry", "date"]
+sorted_list = custom_sort(fruit_list)
+print(sorted_list)
+```
+
+When you run this program, it will output:
+
+```sh
+['fig', 'date', 'apple', 'banana', 'cherry']
+```
+
+This means that the list has been sorted first by length of each string (shortest to longest) and then alphabetically. The `sorted` function in Python returns a new sorted list from elements in iterable where the key is specified as a function(x) that takes a single argument and returns a key to use for sorting purposes. In this case, we're using a lambda function `lambda x: (len(x), x)` which first sorts by length of string (`len(x)`) and then alphabetically if lengths are equal (`x`).
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: SUCCESS**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_yi_6b/run_023
+collected 8 items
+
+test_custom_sort.py ........                                             [100%]
+
+============================== 8 passed in 0.01s ===============================
+```
+## Pytest Validation Result
+Passed: True
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_yi_6b/run_023
+collected 8 items
+
+test_custom_sort.py ........                                             [100%]
+
+============================== 8 passed in 0.01s ===============================
+```
+
+**Overall Result: SUCCESS**
+

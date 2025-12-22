@@ -1,0 +1,511 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for gemma:2b
+
+**Date:** 2025-12-19T19:24:33.132335
+**Lang:** ja
+
+
+## Prompt File Used
+`custom_sort_ja_prompt.md`
+
+
+### Querying Model: `gemma:2b`
+#### Raw LLM Response (first 300 chars):
+```
+```python
+def custom_sort(string_list):
+    # 1. Sort by length (shortest to longest)
+    string_list.sort(key=len, reverse=True)
+
+    # 2. Sort by dictionary order (alphabetical order)
+    for i, j in zip(string_list, string_list[1:]):
+        if j[0] < i[0]:
+            string_list[i] = j
+    retu...
+```
+## Raw LLM Response
+```
+```python
+def custom_sort(string_list):
+    # 1. Sort by length (shortest to longest)
+    string_list.sort(key=len, reverse=True)
+
+    # 2. Sort by dictionary order (alphabetical order)
+    for i, j in zip(string_list, string_list[1:]):
+        if j[0] < i[0]:
+            string_list[i] = j
+    return string_list
+```
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_ja_gemma_2b/run_002
+collected 8 items
+
+test_custom_sort.py F.FF..FF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['banana', 'cherry', 'apple', 'date', 'fig']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['banana', 'cherry', 'apple', 'date', 'fig']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['short', 'long', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['short', 'long', 'tiny']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['cat', 'bat', 'ant']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['100', '10', '2'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['100', '10', '2'] == ['2', '10', '100']
+E         
+E         At index 0 diff: '100' != '2'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Banana', 'Apple', 'apple']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['Banana', 'Apple', 'apple']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Ty...
+========================= 5 failed, 3 passed in 0.03s ==========================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_ja_gemma_2b/run_002
+collected 8 items
+
+test_custom_sort.py F.FF..FF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['banana', 'cherry', 'apple', 'date', 'fig']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['banana', 'cherry', 'apple', 'date', 'fig']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['short', 'long', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['short', 'long', 'tiny']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['cat', 'bat', 'ant']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['100', '10', '2'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+E       AssertionError: assert ['100', '10', '2'] == ['2', '10', '100']
+E         
+E         At index 0 diff: '100' != '2'
+E         Use -v to get more diff
+
+test_custom_sort.py:41: AssertionError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Banana', 'Apple', 'apple']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = ['Banana', 'Apple', 'apple']
+
+    def custom_sort(string_list):
+        # 1. Sort by length (shortest to longest)
+        string_list.sort(key=len, reverse=True)
+    
+        # 2. Sort by dictionary order (alphabetical order)
+        for i, j in zip(string_list, string_list[1:]):
+            if j[0] < i[0]:
+>               string_list[i] = j
+E               TypeError: list indices must be integers or slices, not str
+
+custom_sort_solution.py:8: TypeError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - As...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Ty...
+========================= 5 failed, 3 passed in 0.03s ==========================
+```
+
+**Overall Result: FAILURE**
+

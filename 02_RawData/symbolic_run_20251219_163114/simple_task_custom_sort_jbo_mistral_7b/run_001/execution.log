@@ -1,0 +1,755 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for mistral:7b
+
+**Date:** 2025-12-19T18:00:11.614340
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `mistral:7b`
+#### Raw LLM Response (first 300 chars):
+```
+To create a Python script that sorts a list using a custom sort function, you can define the following custom_sort function:
+
+```python
+def custom_sort(string_list):
+    def reverse(x, y):
+        return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+
+    def natural(x, y):
+        ret...
+```
+## Raw LLM Response
+```
+To create a Python script that sorts a list using a custom sort function, you can define the following custom_sort function:
+
+```python
+def custom_sort(string_list):
+    def reverse(x, y):
+        return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+
+    def natural(x, y):
+        return cmp(x[0], y[0])               # natural sort for no sign
+
+    string_list = [(len(s), s) for s in string_list]
+    string_list.sort(reverse=True)            # reverse sort by length first
+    string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+    result = [s[1] for s in string_list]      # extract sorted strings from the list of tuples
+    return result
+```
+
+In this code, we first create two helper functions `reverse()` and `natural()` to compare strings based on their lengths (for reverse sorting) or lexicographically (for natural sorting). Then, we apply these functions to sort the input list of strings. Finally, we extract the sorted strings from the resulting list of tuples.
+
+Here's an example usage:
+
+```python
+fruits = ["apple", "fig", "banana", "cherry", "date"]
+sorted_fruits = custom_sort(fruits)
+print(sorted_fruits)  # Output: ['fig', 'date', 'apple', 'banana', 'cherry']
+```
+```
+
+
+### Parsing LLM Response for custom_sort() function
+Content for final `custom_sort_solution.py` saved.
+
+
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_mistral_7b/run_001
+collected 8 items
+
+test_custom_sort.py FFFF.FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['apple', 'fig', 'banana', 'cherry', 'date']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'cherry'), (6, 'banana'), (5, 'apple'), (4, 'date'), (3, 'fig')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(1, 'c'), (1, 'b'), (1, 'a')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(5, 'short'), (4, 'tiny'), (4, 'long')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(3, 'cat'), (3, 'bat'), (3, 'ant')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'single')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(3, '100'), (2, '10'), (1, '2')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'Banana'), (5, 'apple'), (5, 'Apple')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Ty...
+========================= 7 failed, 1 passed in 0.03s ==========================
+```
+## Pytest Validation Result
+Passed: False
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_custom_sort_jbo_mistral_7b/run_001
+collected 8 items
+
+test_custom_sort.py FFFF.FFF                                             [100%]
+
+=================================== FAILURES ===================================
+_________________ test_custom_sort[input_list0-expected_list0] _________________
+
+input_list = ['apple', 'fig', 'banana', 'cherry', 'date']
+expected_list = ['fig', 'date', 'apple', 'banana', 'cherry']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'cherry'), (6, 'banana'), (5, 'apple'), (4, 'date'), (3, 'fig')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list1-expected_list1] _________________
+
+input_list = ['a', 'b', 'c'], expected_list = ['a', 'b', 'c']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(1, 'c'), (1, 'b'), (1, 'a')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list2-expected_list2] _________________
+
+input_list = ['long', 'short', 'tiny']
+expected_list = ['long', 'tiny', 'short']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(5, 'short'), (4, 'tiny'), (4, 'long')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list3-expected_list3] _________________
+
+input_list = ['cat', 'bat', 'ant'], expected_list = ['ant', 'bat', 'cat']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(3, 'cat'), (3, 'bat'), (3, 'ant')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list5-expected_list5] _________________
+
+input_list = ['single'], expected_list = ['single']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'single')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list6-expected_list6] _________________
+
+input_list = ['10', '2', '100'], expected_list = ['2', '10', '100']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(3, '100'), (2, '10'), (1, '2')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+_________________ test_custom_sort[input_list7-expected_list7] _________________
+
+input_list = ['Apple', 'apple', 'Banana']
+expected_list = ['Apple', 'apple', 'Banana']
+
+    @pytest.mark.parametrize("input_list, expected_list", [
+        # Basic case
+        (["apple", "fig", "banana", "cherry", "date"], ["fig", "date", "apple", "banana", "cherry"]),
+        # Case with already sorted elements
+        (["a", "b", "c"], ["a", "b", "c"]),
+        # Case with reverse sorted elements
+        (["long", "short", "tiny"], ["long", "tiny", "short"]),
+        # Case with same length elements
+        (["cat", "bat", "ant"], ["ant", "bat", "cat"]),
+        # Empty list
+        ([], []),
+        # List with one element
+        (["single"], ["single"]),
+        # List with numbers as strings
+        (["10", "2", "100"], ["2", "10", "100"]),
+        # Mixed case
+        (["Apple", "apple", "Banana"], ["Apple", "apple", "Banana"]),
+    ])
+    def test_custom_sort(input_list, expected_list):
+        """
+        Tests the custom_sort function with various inputs.
+        """
+>       assert custom_sort(input_list) == expected_list
+
+test_custom_sort.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+string_list = [(6, 'Banana'), (5, 'apple'), (5, 'Apple')]
+
+    def custom_sort(string_list):
+        def reverse(x, y):
+            return (y[0] < x[0]) - (x[0] < y[0])  # reverse sort for minus sign
+    
+        def natural(x, y):
+            return cmp(x[0], y[0])               # natural sort for no sign
+    
+        string_list = [(len(s), s) for s in string_list]
+        string_list.sort(reverse=True)            # reverse sort by length first
+>       string_list.sort(key=natural)             # then sort lexicographically (alphabetically)
+E       TypeError: natural() missing 1 required positional argument: 'y'
+
+custom_sort_solution.py:10: TypeError
+=========================== short test summary info ============================
+FAILED test_custom_sort.py::test_custom_sort[input_list0-expected_list0] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list1-expected_list1] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list2-expected_list2] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list3-expected_list3] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list5-expected_list5] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list6-expected_list6] - Ty...
+FAILED test_custom_sort.py::test_custom_sort[input_list7-expected_list7] - Ty...
+========================= 7 failed, 1 passed in 0.03s ==========================
+```
+
+**Overall Result: FAILURE**
+

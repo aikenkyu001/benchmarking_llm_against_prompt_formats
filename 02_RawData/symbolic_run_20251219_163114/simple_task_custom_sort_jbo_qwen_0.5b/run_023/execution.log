@@ -1,0 +1,27 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for qwen:0.5b
+
+**Date:** 2025-12-21T15:45:31.615476
+**Lang:** jbo
+
+
+## Prompt File Used
+`custom_sort_jbo_prompt.md`
+
+
+### Querying Model: `qwen:0.5b`
+#### Raw LLM Response (first 300 chars):
+```
+Spasku krasi: do spusku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do spasku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do spasku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do s...
+```
+## Raw LLM Response
+```
+Spasku krasi: do spusku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do spasku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do spasku po'o lo python karda. ko na jmina lo ciksi .a lo jmufa be'i lo karda. Spasku krasi: do spasku po'o lo python karda. ko na jmina lo ciksi .a lojmufa be'i lo karda.
+```
+
+
+### Parsing LLM Response for custom_sort() function
+**ERROR:** Could not find a Python code block or 'def custom_sort(...)' in the LLM response.
+**Overall Result: FAILURE (Code extraction failed)**
+
