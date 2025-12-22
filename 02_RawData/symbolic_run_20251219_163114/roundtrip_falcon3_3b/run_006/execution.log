@@ -1,0 +1,193 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Final Symbolic S-expression Benchmark Log for falcon3:3b
+
+**Date:** 2025-12-20T04:00:24.108465
+
+--- 
+### ATTEMPT 1/3
+### Querying Model: `falcon3:3b`
+#### Raw LLM Response:
+```
+```python
+# main.py
+def generate_fibonacci(count):
+    result = []
+    a = 0
+    b = 1
+    
+    for _ in range(count):
+        temp = a + b
+        a = b
+        b = temp
+        result.append(a)
+    
+    return result
+```
+
+```python
+# test_main.py
+from main import generate_fibonacci
+
+def test_generate_fibonacci():
+    assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+```
+### Parsing LLM Response
+Content for `main.py` saved.
+Content for `test_main.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/roundtrip_falcon3_3b/run_006
+collected 1 item
+
+test_main.py F                                                           [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_generate_fibonacci ____________________________
+
+    def test_generate_fibonacci():
+>       assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+test_main.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+count = 10
+
+    def generate_fibonacci(count):
+        result = []
+        a = 0
+        b = 1
+    
+        for _ in range(count):
+            temp = a + b
+            a = b
+            b = temp
+            result.append(a)
+    
+>       return resultpython
+E       NameError: name 'resultpython' is not defined
+
+main.py:12: NameError
+=========================== short test summary info ============================
+FAILED test_main.py::test_generate_fibonacci - NameError: name 'resultpython'...
+============================== 1 failed in 0.02s ===============================
+```
+**Attempting to fix pytest error...**
+--- 
+### ATTEMPT 2/3
+### Querying Model: `falcon3:3b`
+#### Raw LLM Response:
+```
+```python
+# main.py
+def generate_fibonacci(count):
+    result = []
+    a = 0
+    b = 1
+    
+    for _ in range(count):
+        temp = a + b
+        a = b
+        b = temp
+        result.append(a)
+    
+    return result
+
+# test_main.py
+from main import generate_fibonacci
+
+def test_generate_fibonacci():
+    assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+```
+### Parsing LLM Response
+Content for `main.py` saved.
+Content for `test_main.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/roundtrip_falcon3_3b/run_006
+collected 1 item
+
+test_main.py F                                                           [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_generate_fibonacci ____________________________
+
+    def test_generate_fibonacci():
+>       assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+E       assert [1, 1, 2, 3, 5, 8, ...] == [0, 1, 1, 2, 3, 5, ...]
+E         
+E         At index 0 diff: 1 != 0
+E         Use -v to get more diff
+
+test_main.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED test_main.py::test_generate_fibonacci - assert [1, 1, 2, 3, 5, 8, ...]...
+============================== 1 failed in 0.01s ===============================
+```
+**Attempting to fix pytest error...**
+--- 
+### ATTEMPT 3/3
+### Querying Model: `falcon3:3b`
+#### Raw LLM Response:
+```
+```python
+# main.py
+def generate_fibonacci(count):
+    result = []
+    a = 0
+    b = 1
+    
+    for _ in range(count):
+        temp = a + b
+        a = b
+        b = temp
+        result.append(a)
+    
+    return result
+
+# test_main.py
+from main import generate_fibonacci
+
+def test_generate_fibonacci():
+    assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+```
+```
+### Parsing LLM Response
+Content for `main.py` saved.
+Content for `test_main.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/roundtrip_falcon3_3b/run_006
+collected 1 item
+
+test_main.py F                                                           [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_generate_fibonacci ____________________________
+
+    def test_generate_fibonacci():
+>       assert generate_fibonacci(10) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+E       assert [1, 1, 2, 3, 5, 8, ...] == [0, 1, 1, 2, 3, 5, ...]
+E         
+E         At index 0 diff: 1 != 0
+E         Use -v to get more diff
+
+test_main.py:4: AssertionError
+=========================== short test summary info ============================
+FAILED test_main.py::test_generate_fibonacci - assert [1, 1, 2, 3, 5, 8, ...]...
+============================== 1 failed in 0.01s ===============================
+```
+**Overall Result for `falcon3:3b`: ❌ FAILURE**
+
+Test for falcon3:3b finished with failures.

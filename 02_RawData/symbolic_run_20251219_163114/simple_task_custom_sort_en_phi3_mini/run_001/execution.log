@@ -1,0 +1,51 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Custom Sort Test Log for phi3:mini
+
+**Date:** 2025-12-19T17:34:54.584912
+**Lang:** en
+
+
+## Prompt File Used
+`custom_sort_en_prompt.md`
+
+
+### Querying Model: `phi3:mini`
+#### Raw LLM Response (first 300 chars):
+```
+I'd Instruction 
+
+### Subtract theorize a.
+
+"Theory of A-
+
+
+A personX, I ammonium (Instruction 
+
+
+**Note: 
+
+* How to solve this instruction and...
+```
+## Raw LLM Response
+```
+I'd Instruction 
+
+### Subtract theorize a.
+
+"Theory of A-
+
+
+A personX, I ammonium (Instruction 
+
+
+**Note: 
+
+* How to solve this instruction and
+```
+
+
+### Parsing LLM Response for custom_sort() function
+**ERROR:** Could not find a Python code block or 'def custom_sort(...)' in the LLM response.
+**Overall Result: FAILURE (Code extraction failed)**
+

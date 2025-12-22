@@ -1,0 +1,41 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Simple Task Log for stablelm2:1.6b
+
+**Task:** copy_list
+**Date:** 2025-12-20T01:44:22.294092
+**Lang:** jbo
+**Style:** imperative
+
+### Querying Model: `stablelm2:1.6b`
+#### Raw LLM Response (first 100 chars):
+```
+To provide a detailed explanation, let's first break down the given code snippet into smaller functi...
+```
+### Parsing LLM Response for Python function
+Content for final `generated_code.py` saved.
+### Running Pytest Validation for copy_list
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_copy_list_jbo_imperative_stablelm2_1.6b/run_005
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting test_generated_code.py ____________________
+ImportError while importing test module '/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_copy_list_jbo_imperative_stablelm2_1.6b/run_005/test_generated_code.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+test_generated_code.py:1: in <module>
+    from generated_code import copy_list
+E   ImportError: cannot import name 'copy_list' from 'generated_code' (/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_copy_list_jbo_imperative_stablelm2_1.6b/run_005/generated_code.py)
+=========================== short test summary info ============================
+ERROR test_generated_code.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.07s ===============================
+```
+
+**Overall Result: FAILURE**

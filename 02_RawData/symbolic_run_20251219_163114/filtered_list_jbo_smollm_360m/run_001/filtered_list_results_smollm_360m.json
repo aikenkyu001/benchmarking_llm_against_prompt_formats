@@ -1,0 +1,17 @@
+{
+  "model": "smollm:360m",
+  "prompt_file": "prompt_filtered_list_jbo.txt",
+  "timestamp": "2025-12-19T16:35:05.038329",
+  "llm_response_full": "Here's how you can implement this function:\n\n```python\ndef list_puu_boo(n):\n    return [i for i in range(1, n + 1)]\n\nprint(list_puu_boo(8))\n```",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

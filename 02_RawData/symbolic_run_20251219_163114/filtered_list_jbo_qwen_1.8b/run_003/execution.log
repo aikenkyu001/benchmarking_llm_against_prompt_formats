@@ -1,0 +1,10 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `qwen:1.8b`
+#### Raw LLM Response (first 500 chars):
+```
+I'm sorry, but the text you provided appears to be a list of words or phrases. However, without additional context or information about what is being listed, it's difficult to accurately identify the specific words or phrases that are being listed. If you have more information or context about what is being listed, please provide me with the details so that I can accurately identify the specific words or phrases that are being listed....
+```
+### Attempting to extract list directly from raw response (strictly): 'I'm sorry, but the text you provided appears to be a list of words or phrases. However, without addi...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

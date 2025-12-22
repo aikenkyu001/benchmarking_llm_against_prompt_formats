@@ -1,0 +1,76 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Final Symbolic S-expression Benchmark Log for deepseek-r1:1.5b
+
+**Date:** 2025-12-21T18:04:28.926646
+
+--- 
+### ATTEMPT 1/3
+### Querying Model: `deepseek-r1:1.5b`
+**ERROR:** API request failed: HTTPConnectionPool(host='10.5.42.169', port=11434): Read timed out. (read timeout=60)
+**Query failed. Retrying...**
+--- 
+### ATTEMPT 2/3
+### Querying Model: `deepseek-r1:1.5b`
+#### Raw LLM Response:
+```
+# main.py
+def generate_fibonacci(count):
+    a = 0
+    b = 1
+    for _ in range(count):
+        temp = a + b
+        a = b
+        b = temp
+    return a + b
+
+# test_main.py
+from main import generate_fibonacci
+
+def test_generate_fibonacci():
+    expected = 34
+    result = generate_fibonacci(10)
+    assert result == expected, f"Expected {expected}, but got {result}"
+
+if __name__ == "__main__":
+    test_ = test_generate_fibonacci()
+
+# End of files
+```
+### Parsing LLM Response
+Content for `main.py` saved.
+Content for `test_main.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/roundtrip_deepseek-r1_1.5b/run_024
+collected 1 item
+
+test_main.py F                                                           [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_generate_fibonacci ____________________________
+
+    def test_generate_fibonacci():
+        expected = 34
+        result = generate_fibonacci(10)
+>       assert result == expected, f"Expected {expected}, but got {result}"
+E       AssertionError: Expected 34, but got 144
+E       assert 144 == 34
+
+test_main.py:6: AssertionError
+=========================== short test summary info ============================
+FAILED test_main.py::test_generate_fibonacci - AssertionError: Expected 34, b...
+============================== 1 failed in 0.02s ===============================
+```
+**Attempting to fix pytest error...**
+--- 
+### ATTEMPT 3/3
+### Querying Model: `deepseek-r1:1.5b`
+**ERROR:** API request failed: HTTPConnectionPool(host='10.5.42.169', port=11434): Read timed out. (read timeout=60)
+**Query failed. Retrying...**
+**Overall Result for `deepseek-r1:1.5b`: ❌ FAILURE**
+
+Test for deepseek-r1:1.5b finished with failures.

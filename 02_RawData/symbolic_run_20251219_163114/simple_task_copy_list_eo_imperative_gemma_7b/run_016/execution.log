@@ -1,0 +1,56 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Simple Task Log for gemma:7b
+
+**Task:** copy_list
+**Date:** 2025-12-21T02:03:01.885859
+**Lang:** eo
+**Style:** imperative
+
+### Querying Model: `gemma:7b`
+#### Raw LLM Response (first 100 chars):
+```
+```python
+def copy_list(input_list):
+    """Kopira listu."""
+    output_list = []
+    for item in in...
+```
+### Parsing LLM Response for Python function
+Content for final `generated_code.py` saved.
+### Running Pytest Validation for copy_list
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_copy_list_eo_imperative_gemma_7b/run_016
+collected 2 items
+
+test_generated_code.py F.                                                [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_copy_list_basic _____________________________
+
+    def test_copy_list_basic():
+        l = [1, 2, 3]
+>       c = copy_list(l)
+
+test_generated_code.py:4: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input_list = [1, 2, 3]
+
+    def copy_list(input_list):
+        """Kopira listu."""
+        output_list = []
+        for item in input_list:
+>           output_list.append(item.copy())
+E           AttributeError: 'int' object has no attribute 'copy'
+
+generated_code.py:5: AttributeError
+=========================== short test summary info ============================
+FAILED test_generated_code.py::test_copy_list_basic - AttributeError: 'int' o...
+========================= 1 failed, 1 passed in 0.02s ==========================
+```
+
+**Overall Result: FAILURE**

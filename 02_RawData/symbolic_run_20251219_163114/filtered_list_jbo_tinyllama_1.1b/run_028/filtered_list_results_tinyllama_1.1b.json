@@ -1,0 +1,17 @@
+{
+  "model": "tinyllama:1.1b",
+  "prompt_file": "prompt_filtered_list_jbo.txt",
+  "timestamp": "2025-12-22T02:31:51.840512",
+  "llm_response_full": "Puhuzu Bo Liste Be Li'i Pa Mobi...\n\nI do Puzu Bo Lista Be Li'i Re Moi.\nI do Puzu Bo Xruti Pa Lista Be Li'i Re Moi.\nI do Je Lista Be Li'i Re Moi Cukancu Lo'i Remei Be'i Lista Be Li'i Re Moi.\nI do Na Puzu Bo Jmina Li 8.\n\nPuhuzu Bo Finti Lo Skripti...\n\nPuhuzu Bo Jmina Li 1, 2, 3, 4, 5, 6, 7, 8, 9, 10",
+  "extracted_code": null,
+  "execution_stdout": null,
+  "execution_stderr": null,
+  "extracted_list": null,
+  "expected_list": [
+    2,
+    4,
+    6,
+    10
+  ],
+  "is_correct": false
+}

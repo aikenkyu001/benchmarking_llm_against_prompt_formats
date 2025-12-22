@@ -1,0 +1,22 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `tinyllama:1.1b`
+#### Raw LLM Response (first 500 chars):
+```
+Puhuzu Bo Liste Be Li'i Pa Mobi...
+
+I do Puzu Bo Lista Be Li'i Re Moi.
+I do Puzu Bo Xruti Pa Lista Be Li'i Re Moi.
+I do Je Lista Be Li'i Re Moi Cukancu Lo'i Remei Be'i Lista Be Li'i Re Moi.
+I do Na Puzu Bo Jmina Li 8.
+
+Puhuzu Bo Finti Lo Skripti...
+
+Puhuzu Bo Jmina Li 1, 2, 3, 4, 5, 6, 7, 8, 9, 10...
+```
+### Attempting to extract list directly from raw response (strictly): 'Puhuzu Bo Liste Be Li'i Pa Mobi...
+
+I do Puzu Bo Lista Be Li'i Re Moi.
+I do Puzu Bo Xruti Pa Lista B...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

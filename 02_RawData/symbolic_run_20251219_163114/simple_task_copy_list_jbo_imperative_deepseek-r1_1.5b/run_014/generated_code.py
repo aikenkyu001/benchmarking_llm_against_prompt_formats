@@ -1,0 +1,1 @@
+copied_list = copy.copy(original_list)

@@ -1,0 +1,46 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Simple Task Log for qwen:4b
+
+**Task:** copy_list
+**Date:** 2025-12-21T01:54:33.343132
+**Lang:** ja
+**Style:** imperative
+
+### Querying Model: `qwen:4b`
+#### Raw LLM Response (first 100 chars):
+```
+```python
+def copy_list(input_list):
+    return input_list.copy()
+
+# 使用例
+input_list = [1, 2, 3], 
+ou...
+```
+### Parsing LLM Response for Python function
+Content for final `generated_code.py` saved.
+### Running Pytest Validation for copy_list
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_copy_list_ja_imperative_qwen_4b/run_016
+collected 0 items / 1 error
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting test_generated_code.py ____________________
+test_generated_code.py:1: in <module>
+    from generated_code import copy_list
+generated_code.py:6: in <module>
+    output_list = copy_list(input_list)
+generated_code.py:2: in copy_list
+    return input_list.copy()
+E   AttributeError: 'tuple' object has no attribute 'copy'
+=========================== short test summary info ============================
+ERROR test_generated_code.py - AttributeError: 'tuple' object has no attribut...
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+=============================== 1 error in 0.07s ===============================
+```
+
+**Overall Result: FAILURE**

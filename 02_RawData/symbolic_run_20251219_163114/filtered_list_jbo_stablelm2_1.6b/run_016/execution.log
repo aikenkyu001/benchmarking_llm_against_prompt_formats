@@ -1,0 +1,16 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `stablelm2:1.6b`
+#### Raw LLM Response (first 500 chars):
+```
+The given text seems to be a mix of different languages and possibly misspelled words. Based on my understanding, it appears to be in the Hawaiian language.
+
+Here's an interpretation of the text:
+
+1. "Pusu bo liste" - This phrase means "I have listed something for Pusu." In this context, Pusu is likely a person's name or a title.
+2 2. "be li'i pa moi" - This translates to "that belongs to me."
+3 3. "i do puzu bo xruti pa liste be li'i re moi" - This phrase means "I have listed something for Pusu...
+```
+### Attempting to extract list directly from raw response (strictly): 'The given text seems to be a mix of different languages and possibly misspelled words. Based on my u...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE

@@ -1,0 +1,14 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+### Querying Model: `qwen:1.8b`
+#### Raw LLM Response (first 500 chars):
+```
+I'm sorry, but the text you provided appears to be a list of words or phrases, rather than a coherent sentence. Here is an attempt at breaking down the text and providing some context:
+
+- "do puzu bo" appears to be a command in a language that uses the Latin alphabet (e.g., Spanish, French). The command "do puzu bo" suggests that the speaker wants to perform a specific action related to the word "puzu bo". 
+
+- "na puzu bo jmina li" appears to be a list of words or phrases, with each item separat...
+```
+### Attempting to extract list directly from raw response (strictly): 'I'm sorry, but the text you provided appears to be a list of words or phrases, rather than a coheren...'
+**INFO:** Raw response does not match expected strict list format or contains extraneous text.
+Overall Result: FAILURE
