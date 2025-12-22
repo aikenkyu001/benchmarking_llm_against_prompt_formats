@@ -1,0 +1,1 @@
+GUNMA: .i ko zbasu lo python funkci'o

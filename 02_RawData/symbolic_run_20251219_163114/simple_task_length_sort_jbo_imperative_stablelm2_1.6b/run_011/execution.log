@@ -1,0 +1,52 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Simple Task Log for stablelm2:1.6b
+
+**Task:** length_sort
+**Date:** 2025-12-20T14:37:37.312412
+**Lang:** jbo
+**Style:** imperative
+
+### Querying Model: `stablelm2:1.6b`
+#### Raw LLM Response (first 100 chars):
+```
+La Funkci'o "length_sort", voila comment ça marche et quel est son utilisation :
+
+```python
+def leng...
+```
+### Parsing LLM Response for Python function
+Content for final `generated_code.py` saved.
+### Running Pytest Validation for length_sort
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_length_sort_jbo_imperative_stablelm2_1.6b/run_011
+collected 2 items
+
+test_generated_code.py FF                                                [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_length_sort_basic ____________________________
+
+    def test_length_sort_basic():
+>       assert length_sort(["a", "ccc", "bb"]) == ["a", "bb", "ccc"]
+E       AssertionError: assert None == ['a', 'bb', 'ccc']
+E        +  where None = length_sort(['a', 'ccc', 'bb'])
+
+test_generated_code.py:3: AssertionError
+____________________________ test_length_sort_empty ____________________________
+
+    def test_length_sort_empty():
+>       assert length_sort([]) == []
+E       assert None == []
+E        +  where None = length_sort([])
+
+test_generated_code.py:5: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated_code.py::test_length_sort_basic - AssertionError: asser...
+FAILED test_generated_code.py::test_length_sort_empty - assert None == []
+============================== 2 failed in 0.02s ===============================
+```
+**Overall Result for `stablelm2:1.6b` on task `length_sort`: ❌ FAILURE**

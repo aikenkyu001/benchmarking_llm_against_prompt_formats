@@ -1,0 +1,1 @@
+string_list = ["apple", "banana", "cherry", "date"]
