@@ -1,0 +1,12 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for llama3.2:3b
+
+**Date:** 2025-12-20T08:23:16.443117
+**Test Type:** cot_baseline
+
+**Language:** en
+
+### Querying Model: `llama3.2:3b` (temperature=0.0)
+**ERROR:** API request failed: HTTPConnectionPool(host='10.5.42.169', port=11434): Read timed out. (read timeout=120)
+**Overall Result: ❌ FAILURE (Query failed)**

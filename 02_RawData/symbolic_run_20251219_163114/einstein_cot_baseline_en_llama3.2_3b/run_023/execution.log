@@ -1,0 +1,21 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for llama3.2:3b
+
+**Date:** 2025-12-21T16:29:36.906615
+**Test Type:** cot_baseline
+
+**Language:** en
+
+### Querying Model: `llama3.2:3b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+def solve_puzzle():
+    # Step 1: Identify the position of each house
+    houses = [1, 2, 3, 4, 5]
+
+...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

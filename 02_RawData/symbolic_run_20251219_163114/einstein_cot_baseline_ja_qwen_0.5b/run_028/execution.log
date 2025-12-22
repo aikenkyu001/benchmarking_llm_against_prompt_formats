@@ -1,0 +1,17 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for qwen:0.5b
+
+**Date:** 2025-12-22T02:27:58.075605
+**Test Type:** cot_baseline
+
+**Language:** ja
+
+### Querying Model: `qwen:0.5b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+このパズルは、魚の飼い主がドイツ人であると結論付けられたです。この結果は、鱼を飼い主がドイツ人であるという结论に根づいています。因此，この結果は、鱼を飼い主がドイツ人であるという结论に根づいています。...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

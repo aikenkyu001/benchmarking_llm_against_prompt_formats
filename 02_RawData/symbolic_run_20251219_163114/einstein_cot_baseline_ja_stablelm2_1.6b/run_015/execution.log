@@ -1,0 +1,21 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for stablelm2:1.6b
+
+**Date:** 2025-12-20T23:13:26.451686
+**Test Type:** cot_baseline
+
+**Language:** ja
+
+### Querying Model: `stablelm2:1.6b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+問題解決に必要な知識やモチーフは以下の通りです。
+
+1. イギリシュ人（赤い家）: 1, 2, 3, 4, 5 (赤い家の位置)
+2..
+3. スウェインスタンドラー（犬をペットとして飼っています）：...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

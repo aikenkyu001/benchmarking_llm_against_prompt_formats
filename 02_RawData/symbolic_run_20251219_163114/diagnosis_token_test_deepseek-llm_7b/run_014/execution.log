@@ -1,0 +1,28 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Diagnosis Logic Test Log for deepseek-llm:7b
+
+**Date:** 2025-12-20T22:04:58.407812
+**Test Type:** token_test
+
+### Querying Model: `deepseek-llm:7b`
+#### Raw LLM Response (first 100 chars):
+```
+As an AI, I am unable to execute code directly. However, I can provide you with the Python equivalen...
+```
+### Parsing LLM Response for diagnose() function
+**INFO:** Successfully extracted 'diagnose()' function.
+Content for final `diagnosis_logic.py` saved.
+### Running Pytest Validation
+**Pytest Result: SUCCESS**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/diagnosis_token_test_deepseek-llm_7b/run_014
+collected 6 items
+
+test_diagnosis_logic.py ......                                           [100%]
+
+============================== 6 passed in 0.01s ===============================
+```
+**Overall Result for `deepseek-llm:7b`: 🎉 SUCCESS**

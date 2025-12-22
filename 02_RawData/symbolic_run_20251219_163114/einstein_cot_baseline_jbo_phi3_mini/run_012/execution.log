@@ -1,0 +1,23 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for phi3:mini
+
+**Date:** 2025-12-20T17:13:34.227974
+**Test Type:** cot_baseline
+
+**Language:** jbo
+
+### Querying Model: `phi3:mini` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+** Instruction: 
+# 
+"I.
+
+Document theft, and I amber to a positive_Botanical P-10
+
+### Answer as an ...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

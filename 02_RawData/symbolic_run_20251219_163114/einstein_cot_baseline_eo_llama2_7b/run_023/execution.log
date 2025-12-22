@@ -1,0 +1,30 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for llama2:7b
+
+**Date:** 2025-12-21T17:10:19.418117
+**Test Type:** cot_baseline
+
+**Language:** eo
+
+### Querying Model: `llama2:7b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+This is a classic lateral thinking puzzle. The solution is not based on direct reasoning or observat...
+```
+### Parsing LLM Response for Python code block
+**INFO:** Successfully extracted Python code block containing 'solve_puzzle()'.
+Content for final `einstein_solution.py` saved.
+### Running Pytest Validation
+**Pytest Result: SUCCESS**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_cot_baseline_eo_llama2_7b/run_023
+collected 1 item
+
+test_einstein_riddle.py .                                                [100%]
+
+============================== 1 passed in 0.01s ===============================
+```
+**Overall Result for `llama2:7b`: 🎉 SUCCESS**

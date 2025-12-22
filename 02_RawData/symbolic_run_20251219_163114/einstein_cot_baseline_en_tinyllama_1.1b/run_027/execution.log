@@ -1,0 +1,55 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for tinyllama:1.1b
+
+**Date:** 2025-12-22T00:21:59.075693
+**Test Type:** cot_baseline
+
+**Language:** en
+
+### Querying Model: `tinyllama:1.1b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+Here's a Python code block for solving the "Einstein's Puzzle" logic puzzle:
+
+```python
+def solve_pu...
+```
+### Parsing LLM Response for Python code block
+**INFO:** Successfully extracted Python code block containing 'solve_puzzle()'.
+Content for final `einstein_solution.py` saved.
+### Running Pytest Validation
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_cot_baseline_en_tinyllama_1.1b/run_027
+collected 1 item
+
+test_einstein_riddle.py F                                                [100%]
+
+=================================== FAILURES ===================================
+________________________ test_einstein_riddle_solution _________________________
+
+    def test_einstein_riddle_solution():
+        """
+        Tests the output of the LLM-generated solve_puzzle function.
+        It imports the function directly and captures its standard output.
+        """
+        solution_file = "einstein_solution.py"
+        expected_answer = "German"
+    
+        try:
+            # Dynamically import the generated function
+>           from einstein_solution import solve_puzzle
+E             File "/private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/einstein_cot_baseline_en_tinyllama_1.1b/run_027/einstein_solution.py", line 3
+E               1. Identify the position of each house (from 1st to 5th).
+E                  ^
+E           SyntaxError: invalid syntax
+
+test_einstein_riddle.py:21: SyntaxError
+=========================== short test summary info ============================
+FAILED test_einstein_riddle.py::test_einstein_riddle_solution -   File "/priv...
+============================== 1 failed in 0.01s ===============================
+```
+**Overall Result for `tinyllama:1.1b`: ❌ FAILURE**

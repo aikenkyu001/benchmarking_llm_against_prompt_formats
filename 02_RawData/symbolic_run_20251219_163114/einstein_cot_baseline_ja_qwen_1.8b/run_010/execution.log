@@ -1,0 +1,23 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for qwen:1.8b
+
+**Date:** 2025-12-20T12:34:36.751288
+**Test Type:** cot_baseline
+
+**Language:** ja
+
+### Querying Model: `qwen:1.8b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+您的答案是：德国人。 
+
+以下为详细解释和推导过程：
+
+1. **问题定义与背景分析**：
+   首先，明确题目所设定的问题是什么？（鱼的飼い主））
+   然后，根据题目背景进行深入分析，了解鱼的飼い...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

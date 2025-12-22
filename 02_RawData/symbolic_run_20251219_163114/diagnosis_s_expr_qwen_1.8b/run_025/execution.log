@@ -1,0 +1,15 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Diagnosis Logic Test Log for qwen:1.8b
+
+**Date:** 2025-12-21T20:32:57.016217
+**Test Type:** s_expr
+
+### Querying Model: `qwen:1.8b`
+#### Raw LLM Response (first 100 chars):
+```
+To execute the transpilation, you need to have the `diagnose` function defined in a symbolic S-expre...
+```
+### Parsing LLM Response for diagnose() function
+**ERROR:** Could not find a complete 'def diagnose(...):' function in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

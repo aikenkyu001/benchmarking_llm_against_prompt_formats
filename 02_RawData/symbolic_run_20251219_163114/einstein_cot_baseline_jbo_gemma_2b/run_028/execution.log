@@ -1,0 +1,21 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for gemma:2b
+
+**Date:** 2025-12-22T03:03:39.508786
+**Test Type:** cot_baseline
+
+**Language:** jbo
+
+### Querying Model: `gemma:2b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+**Pinka javni:**
+
+1.  .i 5 nengla cu zutse la'i panka
+2.  .i ro nengla cu skari'o lo ka drata
+3.  .i...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**

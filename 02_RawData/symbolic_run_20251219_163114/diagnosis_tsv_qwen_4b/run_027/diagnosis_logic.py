@@ -1,0 +1,1 @@
+def diagnose(symptoms: list)  -> str:

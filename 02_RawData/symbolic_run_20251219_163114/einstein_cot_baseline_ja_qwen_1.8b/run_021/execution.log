@@ -1,0 +1,22 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Einstein Riddle Logic Test Log for qwen:1.8b
+
+**Date:** 2025-12-21T12:02:20.230027
+**Test Type:** cot_baseline
+
+**Language:** ja
+
+### Querying Model: `qwen:1.8b` (temperature=0.0)
+#### Raw LLM Response (first 100 chars):
+```
+您的答案是：德国人。 
+
+以下为详细的手势和解释：
+
+1. **放置鱼的容器**：
+   - 首先，您需要一个专门用于放置鱼的容器。这个容器可以是一个塑料桶、一个木制鱼缸或者任何其他适合放置鱼的容器。...
+```
+### Parsing LLM Response for Python code block
+**ERROR:** Could not find a Python markdown code block in the LLM response.
+**Overall Result: ❌ FAILURE (Code extraction failed)**
