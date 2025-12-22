@@ -1,0 +1,118 @@
+/private/test/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+# Simple Task Log for gemma:2b
+
+**Task:** simple_sort
+**Date:** 2025-12-19T23:44:38.392305
+**Lang:** en
+**Style:** imperative
+
+### Querying Model: `gemma:2b`
+#### Raw LLM Response (first 100 chars):
+```
+```python
+def simple_sort(number_list):
+  """
+  Simple sorting function.
+
+  Args:
+    number_list: A...
+```
+### Parsing LLM Response for Python function
+Content for final `generated_code.py` saved.
+### Running Pytest Validation for simple_sort
+**Pytest Result: FAILED**
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
+rootdir: /private/test/benchmarking_llm_against_prompt_formats/02_RawData/symbolic_run_20251219_163114/simple_task_simple_sort_en_imperative_gemma_2b/run_004
+collected 3 items
+
+test_generated_code.py FFF                                               [100%]
+
+=================================== FAILURES ===================================
+____________________________ test_simple_sort_basic ____________________________
+
+    def test_simple_sort_basic():
+>       assert simple_sort([3, 1, 2]) == [1, 2, 3]
+
+test_generated_code.py:3: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+number_list = [3, 1, 2]
+
+    def simple_sort(number_list):
+      """
+      Simple sorting function.
+    
+      Args:
+        number_list: A list of numbers.
+    
+      Returns:
+        A new list with the numbers from `number_list` sorted in ascending order.
+      """
+    
+      # Copy the number_list to a new list called sorted_list.
+>     sorted_list = copy.deepcopy(number_list)
+E     NameError: name 'copy' is not defined
+
+generated_code.py:13: NameError
+____________________________ test_simple_sort_empty ____________________________
+
+    def test_simple_sort_empty():
+>       assert simple_sort([]) == []
+
+test_generated_code.py:5: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+number_list = []
+
+    def simple_sort(number_list):
+      """
+      Simple sorting function.
+    
+      Args:
+        number_list: A list of numbers.
+    
+      Returns:
+        A new list with the numbers from `number_list` sorted in ascending order.
+      """
+    
+      # Copy the number_list to a new list called sorted_list.
+>     sorted_list = copy.deepcopy(number_list)
+E     NameError: name 'copy' is not defined
+
+generated_code.py:13: NameError
+__________________________ test_simple_sort_negative ___________________________
+
+    def test_simple_sort_negative():
+>       assert simple_sort([-1, -5, 0]) == [-5, -1, 0]
+
+test_generated_code.py:7: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+number_list = [-1, -5, 0]
+
+    def simple_sort(number_list):
+      """
+      Simple sorting function.
+    
+      Args:
+        number_list: A list of numbers.
+    
+      Returns:
+        A new list with the numbers from `number_list` sorted in ascending order.
+      """
+    
+      # Copy the number_list to a new list called sorted_list.
+>     sorted_list = copy.deepcopy(number_list)
+E     NameError: name 'copy' is not defined
+
+generated_code.py:13: NameError
+=========================== short test summary info ============================
+FAILED test_generated_code.py::test_simple_sort_basic - NameError: name 'copy...
+FAILED test_generated_code.py::test_simple_sort_empty - NameError: name 'copy...
+FAILED test_generated_code.py::test_simple_sort_negative - NameError: name 'c...
+============================== 3 failed in 0.02s ===============================
+```
+**Overall Result for `gemma:2b` on task `simple_sort`: ❌ FAILURE**

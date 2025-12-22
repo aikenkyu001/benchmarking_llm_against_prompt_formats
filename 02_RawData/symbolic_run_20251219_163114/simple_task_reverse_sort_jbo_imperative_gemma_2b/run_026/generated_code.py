@@ -1,0 +1,1 @@
+reversed_sort = functools.partial(reverse_sort, number_list)
