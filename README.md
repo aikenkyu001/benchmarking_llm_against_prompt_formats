@@ -1,3 +1,18 @@
+# Benchmarking Large Language Models Against Prompt Formats
+
+This repository serves as the official experimental environment and accompanying resources for the research paper titled "Benchmarking Large Language Models Against Prompt Formats: Experimental Methods and Results." It provides a comprehensive, self-contained, and reproducible framework for investigating how Large Language Models (LLMs) respond to various prompt formats, languages, styles, and symbolic representations.
+
+Here you will find:
+- **Paper Manuscripts:** Drafts of the research paper in both English and Japanese.
+- **Experimental Scripts:** Python scripts for running the benchmarks and analyzing results.
+- **Prompt Definitions:** The diverse set of prompts used in the experiments.
+- **Test Definitions:** Pytest definitions for validating LLM-generated code.
+- **Raw Data:** Raw output logs from the benchmark runs.
+
+This project aims to offer an objective and data-driven understanding of LLM capabilities and limitations, particularly in handling formal and ambiguous languages. For more details, please refer to the paper manuscripts within the `01_Manuscripts/` directory.
+
+---
+
 # Experimental Environment: Verifying the Computational Properties of Large Language Models
 
 This directory contains a self-contained experimental environment to verify the claims made in the paper "A Study on the Computational Properties of Large Language Models and the Feasibility of Artificial General Intelligence." This environment is publicly available at [https://github.com/aikenkyu001/benchmarking_llm_against_prompt_formats](https://github.com/aikenkyu001/benchmarking_llm_against_prompt_formats).
@@ -30,7 +45,7 @@ This section documents key challenges and findings discovered during the develop
 
 *   **`Einstein Riddle - token_test`**: This test remains unsolved by all tested models (as of Dec 2025). While advanced models (e.g., `llama3:8b`) were able to learn the custom language's grammar and mimic the correct backtracking algorithm from the prompt's example, they consistently failed to produce a **bug-free implementation**. The generated code often contained subtle logic errors (e.g., `KeyError`, incorrect state management in recursion), indicating that while models can imitate algorithmic structure, implementing complex, bug-free logic remains a significant hurdle.
 
-*   **`Filtered List (jbo)`**: This test also remains unsolved by all models. The failure is attributed to the task's nature: it requires the model to perform direct logical reasoning and filtering **using Lojban itself** and to output a result without generating Python code. In contrast, other tests where Lojban was successful (e.g., `Simple Sort`) required the model to "transpile" a Lojban specification into Python code. This suggests that current models have some ability to translate Lojban to a familiar language like Python, but struggle significantly with performing direct, complex reasoning and instruction-following within Lojban.
+*   **`Filtered List (jbo)`**: This test also remains unsolved by all models. The failure is attributed to the task's nature: it requires the model to perform direct logical reasoning and filtering **using Lojban itself** and to output a result without generating any Python code. In contrast, other tests where Lojban was successful (e.g., `Simple Sort`) required the model to "transpile" a Lojban specification into Python code. This suggests that current models have some ability to translate Lojban to a familiar language like Python, but struggle significantly with performing direct, complex reasoning and instruction-following within Lojban.
 
 *   **Lojban Understanding (Supplementary Test)**: Following the poor performance in multi-language tasks, a dedicated Lojban test was conducted. It revealed a **total failure (0% success)** across all 20 models in both basic bidirectional translation and simple code generation from Lojban. Models either repeated the input, hallucinated incorrect translations, or failed to produce any valid code. This strongly indicates that the models lack a foundational, semantic understanding of Lojban, and any prior successes were likely due to superficial pattern matching between Lojban-like syntax and specific code structures in the training data, rather than true comprehension.
 

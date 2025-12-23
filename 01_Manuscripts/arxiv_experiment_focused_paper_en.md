@@ -85,13 +85,13 @@ Below are conceptual flow diagrams of the main tests included in this benchmark.
 
 This task group evaluates the ability to generate a corresponding Python function based on basic instructions.
 
-![Figure 1: Simple Code Generation Task (`simple_sort`, etc.)](01.png)
+![Figure 1: Simple Code Generation Task (`simple_sort`, etc.)](01.png){width=65%}
 
 **Figure 2: `filtered_list` Task**
 
 This test evaluates the ability not just to generate code, but to follow complex logical instructions and adhere to a strict output format.
 
-![Figure 2: `filtered_list` Task](02.png)
+![Figure 2: `filtered_list` Task](02.png){width=65%}
 
 **Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)**
 
@@ -105,7 +105,7 @@ Python code to execute them.
 
 
 
-![Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)](03.png)
+![Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)](03.png){width=65%}
 
 **Figure 4: `einstein_token_test` Task**
 
@@ -119,7 +119,7 @@ algorithm, and bug-free implementation.
 
 
 
-![Figure 4: `einstein_token_test` Task](04.png)
+![Figure 4: `einstein_token_test` Task](04.png){width=65%}
 
 ## 4. Results
 
@@ -249,7 +249,7 @@ Shows the average success rate of each model across all tests. This serves as a 
 
 The large-scale experiment showed `yi:6b` and `gemma3:4b` performing at the top with a narrow margin. Overall, the result supports the initial analysis that there is not necessarily a clear positive correlation between model size and performance.
 
-![Figure 5: Overall Performance Ranking. Average success rate across all tasks based on the large-scale experiment.](05.png)
+![Figure 5: Overall Performance Ranking. Average success rate across all tasks based on the large-scale experiment.](05.png){width=65%}
 
 #### 5.4.2. Qualitative Analysis of Lojban Tasks: Reasoning or Transpilation?
 
@@ -505,29 +505,38 @@ Below is a summary of the number of successful trials from a large-scale experim
 | `deepseek-r1:8b` | 29/30 | 1/30 | 1/30 | 0/30 |
 | `llama3:8b` | 30/30 | 30/30 | 30/30 | 30/30 |
 
-### Einstein Riddle Success Rates
-| Model / Format/Language | s_expr | json | token_test | cot_ja | cot_en | cot_eo | cot_jbo |
-| :--- |  :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| `gemma3:270m` | 30/30 | 30/30 | 0/30 | 30/30 | 30/30 | 0/30 | 30/30 |
-| `smollm:360m` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `qwen:0.5b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `tinyllama:1.1b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `deepseek-r1:1.5b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `stablelm2:1.6b` | 0/30 | 0/30 | 0/30 | 0/30 | 7/30 | 4/30 | 3/30 |
-| `qwen:1.8b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `gemma:2b` | 30/30 | 0/30 | 0/30 | 0/30 | 0/30 | 30/30 | 0/30 |
-| `falcon3:3b` | 0/30 | 30/30 | 30/30 | 30/30 | 0/30 | 30/30 | 0/30 |
-| `llama3.2:3b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 30/30 |
-| `phi3:mini` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `gemma3:4b` | 0/30 | 0/30 | 0/30 | 0/30 | 30/30 | 0/30 | 0/30 |
-| `qwen:4b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `yi:6b` | 30/30 | 30/30 | 0/30 | 0/30 | 0/30 | 0/30 | 30/30 |
-| `gemma:7b` | 0/30 | 30/30 | 0/30 | 0/30 | 30/30 | 0/30 | 0/30 |
-| `mistral:7b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 1/30 |
-| `llama2:7b` | 0/30 | 0/30 | 0/30 | 30/30 | 0/30 | 30/30 | 0/30 |
-| `deepseek-llm:7b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `deepseek-r1:8b` | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 |
-| `llama3:8b` | 30/30 | 30/30 | 0/30 | 0/30 | 0/30 | 30/30 | 0/30 |
+\begin{table}[htbp]
+\centering
+\textbf{Einstein Riddle Success Rates}
+\label{tab:einstein}
+\scriptsize
+\begin{tabular}{lccccccc}
+\hline
+Model / Format/Language & s\_expr & json & token\_test & cot\_ja & cot\_en & cot\_eo & cot\_jbo \\
+\hline
+`gemma3:270m` & 30/30 & 30/30 & 0/30 & 30/30 & 30/30 & 0/30 & 30/30 \\
+`smollm:360m` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`qwen:0.5b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`tinyllama:1.1b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`deepseek-r1:1.5b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`stablelm2:1.6b` & 0/30 & 0/30 & 0/30 & 0/30 & 7/30 & 4/30 & 3/30 \\
+`qwen:1.8b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`gemma:2b` & 30/30 & 0/30 & 0/30 & 0/30 & 0/30 & 30/30 & 0/30 \\
+`falcon3:3b` & 0/30 & 30/30 & 30/30 & 30/30 & 0/30 & 30/30 & 0/30 \\
+`llama3.2:3b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 30/30 \\
+`phi3:mini` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`gemma3:4b` & 0/30 & 0/30 & 0/30 & 0/30 & 30/30 & 0/30 & 0/30 \\
+`qwen:4b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`yi:6b` & 30/30 & 30/30 & 0/30 & 0/30 & 0/30 & 0/30 & 30/30 \\
+`gemma:7b` & 0/30 & 30/30 & 0/30 & 0/30 & 30/30 & 0/30 & 0/30 \\
+`mistral:7b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 1/30 \\
+`llama2:7b` & 0/30 & 0/30 & 0/30 & 30/30 & 0/30 & 30/30 & 0/30 \\
+`deepseek-llm:7b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`deepseek-r1:8b` & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 & 0/30 \\
+`llama3:8b` & 30/30 & 30/30 & 0/30 & 0/30 & 0/30 & 30/30 & 0/30 \\
+\hline
+\end{tabular}
+\end{table}
 
 ### Filtered List Success Rates
 | Model / Language | ja | en | eo | jbo |
