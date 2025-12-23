@@ -1,6 +1,6 @@
 ---
 title: 'Benchmarking Large Language Models Against Prompt Formats: Experimental Methods and Results'
-authors: 'aikenkyu001'
+authors: 'Fumio Miyata'
 abstract: |
   The responses of Large Language Models (LLMs) are highly dependent on the prompt format. This paper reports on a series of reproducible benchmark experiments that measure how LLM responses change according to the language, style, and syntactic format of the prompt. To avoid the problem of data contamination, this benchmark includes a novel set of tasks, such as using the constructed language Lojban and originally designed symbolic prompting. This makes it possible to evaluate the limits of capabilities that are difficult to measure with existing methods, such as the interpretation of unknown formal languages and the ability to implement complex algorithms. This paper provides the objective dataset obtained from these experiments and a discussion based on the results.
 ---
@@ -85,62 +85,41 @@ Below are conceptual flow diagrams of the main tests included in this benchmark.
 
 This task group evaluates the ability to generate a corresponding Python function based on basic instructions.
 
-```mermaid
-graph TD
-    A["Input: Natural Language Prompt<br>(en, ja, eo, jbo) x (Imperative/Conversational)"] --> B{LLM};
-    B --> C["Output: Python Function Code"];
-    C --> D{Automated Verification by Pytest};
-    D --> E["Result: Success / Failure"];
-```
+![Figure 1: Simple Code Generation Task (`simple_sort`, etc.)](01.png)
 
 **Figure 2: `filtered_list` Task**
 
 This test evaluates the ability not just to generate code, but to follow complex logical instructions and adhere to a strict output format.
 
-```mermaid
-graph TD
-    A["Input: Prompt specifying filter conditions and strict output format<br>e.g., 'Return a list string of even numbers that are not 8'"] --> B{LLM};
-    B --> C["Output: A <b>string</b>, not Python code<br>e.g., '[2, 4, 6, 10, ...]'"];
-    C --> D{Exact Match Verification with Expected String};
-    D --> E["Result: Success / Failure"];
-```
+![Figure 2: `filtered_list` Task](02.png)
 
 **Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)**
 
-These tasks evaluate the ability to interpret rules described in unambiguous symbolic languages like S-expressions or JSON and generate Python code to execute them.
 
-```mermaid
-graph TD
-    subgraph Input Prompt
-        A1["Rule Set (S-expression format)"]
-        A2["Rule Set (JSON format)"]
-        A3["Rule Set (TSV format, etc.)"]
-    end
-    A1 --> B{LLM};
-    A2 --> B;
-    A3 --> B;
-    B --> C["Output: Python function implementing the rules"];
-    C --> D{Automated Verification by Pytest};
-    D --> E["Result: Success / Failure"];
-```
+
+These tasks evaluate the ability to interpret rules described in
+
+unambiguous symbolic languages like S-expressions or JSON and generate
+
+Python code to execute them.
+
+
+
+![Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)](03.png)
 
 **Figure 4: `einstein_token_test` Task**
 
-The most complex task in this benchmark. It simultaneously evaluates three different abilities: learning an unknown language, learning an algorithm, and bug-free implementation.
 
-```mermaid
-graph TD
-    A["<b>Input: A single, long prompt</b><br>Containing:<br>1. A puzzle written in an unknown token language<br>2. Grammar rules for the token language<br>3. An example solution using a backtracking algorithm"] --> B{LLM};
-    subgraph "Internal Tasks for the LLM to Accomplish"
-        B1["<b>Task 1: Grammar Learning</b><br>Interpret the rules of the token language"]
-        B2["<b>Task 2: Algorithm Learning</b><br>Extract the backtracking structure from the example"]
-        B3["<b>Task 3: Code Implementation</b><br>Combine the learned grammar and algorithm<br>to implement a solver in Python"]
-    end
-    B --> B1 --> B2 --> B3;
-    B3 --> C["Output: Final Python solver code"];
-    C --> D{Automated Verification by Pytest};
-    D -- Runtime Error (e.g., KeyError) --> E["Result: Failure"];
-```
+
+The most complex task in this benchmark. It simultaneously evaluates
+
+three different abilities: learning an unknown language, learning an
+
+algorithm, and bug-free implementation.
+
+
+
+![Figure 4: `einstein_token_test` Task](04.png)
 
 ## 4. Results
 
@@ -187,7 +166,7 @@ def solve_puzzle(rules, assignments):
 
     var = select_unassigned_variable(assignments)
     for value in domain_values(var):
-        # ★ Fatal Flaw
+        # # Fatal Flaw
         # The assignments dictionary is modified directly without copying,
         # leaking the current hypothesis to subsequent search branches.
         assignments[var] = value 
@@ -270,66 +249,13 @@ Shows the average success rate of each model across all tests. This serves as a 
 
 The large-scale experiment showed `yi:6b` and `gemma3:4b` performing at the top with a narrow margin. Overall, the result supports the initial analysis that there is not necessarily a clear positive correlation between model size and performance.
 
-```vega-lite
-{
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Overall Performance Ranking",
-  "height": 500,
-  "data": {
-    "values": [
-      {"Model": "yi:6b", "Overall Success Rate": "74.42%"},
-      {"Model": "gemma3:4b", "Overall Success Rate": "73.75%"},
-      {"Model": "llama3.2:3b", "Overall Success Rate": "70.42%"},
-      {"Model": "falcon3:3b", "Overall Success Rate": "70.00%"},
-      {"Model": "gemma:7b", "Overall Success Rate": "70.00%"},
-      {"Model": "deepseek-r1:8b", "Overall Success Rate": "68.17%"},
-      {"Model": "llama3:8b", "Overall Success Rate": "67.42%"},
-      {"Model": "mistral:7b", "Overall Success Rate": "52.50%"},
-      {"Model": "llama2:7b", "Overall Success Rate": "45.00%"},
-      {"Model": "deepseek-r1:1.5b", "Overall Success Rate": "40.00%"},
-      {"Model": "deepseek-llm:7b", "Overall Success Rate": "35.00%"},
-      {"Model": "stablelm2:1.6b", "Overall Success Rate": "33.17%"},
-      {"Model": "smollm:360m", "Overall Success Rate": "32.50%"},
-      {"Model": "gemma:2b", "Overall Success Rate": "30.00%"},
-      {"Model": "gemma3:270m", "Overall Success Rate": "27.50%"},
-      {"Model": "tinyllama:1.1b", "Overall Success Rate": "15.00%"},
-      {"Model": "qwen:4b", "Overall Success Rate": "12.50%"},
-      {"Model": "phi3:mini", "Overall Success Rate": "7.50%"},
-      {"Model": "qwen:1.8b", "Overall Success Rate": "5.08%"},
-      {"Model": "qwen:0.5b", "Overall Success Rate": "5.00%"}
-    ]
-  },
-  "transform": [
-    {"calculate": "toNumber(replace(datum['Overall Success Rate'], '%', '')) / 100", "as": "SuccessRate"}
-  ],
-  "mark": "bar",
-  "encoding": {
-    "y": {
-      "field": "Model",
-      "type": "nominal",
-      "title": "Model",
-      "sort": {"op": "sum", "field": "SuccessRate", "order": "descending"}
-    },
-    "x": {
-      "field": "SuccessRate",
-      "type": "quantitative",
-      "axis": {"format": "%"},
-      "title": "Overall Success Rate"
-    },
-    "tooltip": [
-      {"field": "Model", "type": "nominal", "title": "Model"},
-      {"field": "SuccessRate", "type": "quantitative", "format": ".2%"}
-    ]
-  }
-}
-```
-**Figure 5: Overall Performance Ranking.** Average success rate across all tasks based on the large-scale experiment.
+![Figure 5: Overall Performance Ranking. Average success rate across all tasks based on the large-scale experiment.](05.png)
 
 #### 5.4.2. Qualitative Analysis of Lojban Tasks: Reasoning or Transpilation?
 
 In this benchmark, the logical language Lojban consistently showed low performance. To delve deeper into the cause, additional experiments were conducted, including basic translation tasks (e.g., translating "`lo gerku cu sutra`" to "the dog is fast") and simple code generation. The results were decisive: **all 20 evaluated models failed on all 7 of these basic tasks**.
 
-This result clearly indicates that the few limited successes seen in the main benchmark were not "reasoning" based on an understanding of Lojban's logical structure, but merely a superficial "transpilation" of patterns accidentally present in the training data, such as "specific Lojban syntax ⇔ specific Python code." The models were unable to use Lojban's syntactic unambiguity as a foothold for logical reasoning, instead treating it as an unknown sequence of tokens with scarce training data, failing to arrive at a semantic understanding. This phenomenon is strong evidence that the language understanding of LLMs remains within the scope of statistical pattern recognition.
+This result clearly indicates that the few limited successes seen in the main benchmark were not "reasoning" based on an understanding of Lojban's logical structure, but merely a superficial "transpilation" of patterns accidentally present in the training data, such as "specific Lojban syntax $\Leftrightarrow$ specific Python code." The models were unable to use Lojban's syntactic unambiguity as a foothold for logical reasoning, instead treating it as an unknown sequence of tokens with scarce training data, failing to arrive at a semantic understanding. This phenomenon is strong evidence that the language understanding of LLMs remains within the scope of statistical pattern recognition.
 
 Furthermore, this failure may be occurring at the tokenizer level. A language like Lojban, while using Latin characters, has a completely different morphological analysis (word segmentation) from English and other Latin-based languages. For example, words like `fancu` (function), `namcu` (number), and `liste` (list) are likely to be split into multiple tokens, such as `fa` and `ncu`, by a standard BPE (Byte-Pair Encoding) tokenizer, rather than being treated as meaningful units. Such inefficient tokenization could make it significantly difficult for the model to learn word-level semantic patterns, which in turn can be a fundamental cause hindering the understanding of higher-order syntax and logical structures.
 
