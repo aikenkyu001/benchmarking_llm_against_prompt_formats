@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  24 DEC 2025 15:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  24 DEC 2025 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -521,22 +521,22 @@ ap/pdftex.map}{/opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/e
 nc/dvips/cm-super/cm-super-t1.enc}]
 
 [2]
-<figures/figure1_en.pdf, id=114, 191.9672pt x 352.31625pt>
+<figures/figure1_en.pdf, id=115, 191.9672pt x 352.31625pt>
 File: figures/figure1_en.pdf Graphic file (type pdf)
 <use figures/figure1_en.pdf>
 Package pdftex.def Info: figures/figure1_en.pdf  used on input line 112.
 (pdftex.def)             Requested size: 271.7835pt x 498.87332pt.
-<figures/figure2_en.pdf, id=115, 327.47343pt x 402.00188pt>
+<figures/figure2_en.pdf, id=116, 327.47343pt x 402.00188pt>
 File: figures/figure2_en.pdf Graphic file (type pdf)
 <use figures/figure2_en.pdf>
 Package pdftex.def Info: figures/figure2_en.pdf  used on input line 119.
 (pdftex.def)             Requested size: 271.7835pt x 333.63693pt.
-<figures/figure3_en.pdf, id=116, 537.50812pt x 353.06906pt>
+<figures/figure3_en.pdf, id=117, 537.50812pt x 353.06906pt>
 File: figures/figure3_en.pdf Graphic file (type pdf)
 <use figures/figure3_en.pdf>
 Package pdftex.def Info: figures/figure3_en.pdf  used on input line 126.
 (pdftex.def)             Requested size: 362.37569pt x 238.03117pt.
-<figures/figure4_en.pdf, id=117, 375.65344pt x 654.19406pt>
+<figures/figure4_en.pdf, id=118, 375.65344pt x 654.19406pt>
 File: figures/figure4_en.pdf Graphic file (type pdf)
 <use figures/figure4_en.pdf>
 Package pdftex.def Info: figures/figure4_en.pdf  used on input line 133.
@@ -560,7 +560,7 @@ usion: multiple pdfs with page group included in a single page
 [6 <01_Manuscripts/figures/figure4_en.pdf>]
 
 [7]
-<figures/figure5_en.pdf, id=256, 264.99pt x 413.545pt>
+<figures/figure5_en.pdf, id=257, 264.99pt x 413.545pt>
 File: figures/figure5_en.pdf Graphic file (type pdf)
 <use figures/figure5_en.pdf>
 Package pdftex.def Info: figures/figure5_en.pdf  used on input line 202.
@@ -601,11 +601,11 @@ ot changed.
 Here is how much of TeX's memory you used:
  10974 strings out of 473190
  170999 string characters out of 5704335
- 602025 words of memory out of 5000000
+ 601025 words of memory out of 5000000
  33972 multiletter control sequences out of 15000+600000
  575805 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1141b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1275b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/
 cm-super/sfbx0600.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-dist
 /fonts/type1/public/cm-super/sfbx1000.pfb></opt/homebrew/Cellar/texlive/2025030
@@ -626,10 +626,10 @@ ic/cm-super/sftt0800.pfb></opt/homebrew/Cellar/texlive/20250308_2/share/texmf-d
 ist/fonts/type1/public/cm-super/sftt1095.pfb></opt/homebrew/Cellar/texlive/2025
 0308_2/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
 Output written on 01_Manuscripts/arxiv_experiment_focused_paper_en.pdf (14 page
-s, 505585 bytes).
+s, 508626 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 318 compressed objects within 4 object streams
+ 403 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
  72 named destinations out of 1000 (max. 500000)
  194 words of extra memory for PDF output out of 10000 (max. 10000000)
 
