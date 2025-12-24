@@ -76,19 +76,19 @@ The following diagrams illustrate the workflows of the main tests in this benchm
 
 **Figure 1: Conceptual workflow for simple code generation tasks.** The LLM receives a natural language prompt and must produce Python code that passes automated `Pytest` verification.
 
-![Figure 1: Simple Code Generation Task (`simple_sort`, etc.)](01.png){width=65%}
+![Figure 1: Conceptual workflow for simple code generation tasks.](figure1_en.pdf){width=65%}
 
 **Figure 2: Workflow for the `filtered_list` task.** This evaluates the ability to adhere to strict output formatting by requiring a specific string output, not executable code.
 
-![Figure 2: `filtered_list` Task](02.png){width=65%}
+![Figure 2: Workflow for the `filtered_list` task.](figure2_en.pdf){width=65%}
 
 **Figure 3: Workflow for symbolic reasoning tasks.** The LLM must interpret rules defined in a formal language (e.g., S-expression, JSON) and generate a Python function that implements them.
 
-![Figure 3: `diagnosis` / `einstein` Tasks (Symbolic Language)](03.png){width=65%}
+![Figure 3: Workflow for symbolic reasoning tasks.](figure3_en.pdf){width=65%}
 
 **Figure 4: Workflow for the `einstein_token_test` task.** This multi-stage challenge requires the LLM to learn an unknown grammar and a backtracking algorithm from a single prompt to implement a bug-free solver.
 
-![Figure 4: `einstein_token_test` Task](04.png){width=65%}
+![Figure 4: Workflow for the `einstein_token_test` task.](figure4_en.pdf){width=65%}
 
 ## 4. Factual Results
 
@@ -153,7 +153,7 @@ The higher success rates on certain tasks when using symbolic prompts (S-express
 
 The lack of a clear correlation between model size and performance on our benchmark suggests that factors like architecture and training data composition may play a more significant role than parameter count alone for these specific reasoning tasks.
 
-![Figure 5: Overall Performance Ranking. Average success rate across all tasks based on the large-scale experiment.](05.png){width=65%}
+![Figure 5: Overall Performance Ranking.](figure5_en.pdf){width=65%}
 
 Furthermore, the consistent and near-total failure on Lojban tasks provides additional evidence that model performance may be rooted in pattern recognition rather than abstract reasoning. In a separate suite of basic Lojban translation tasks, all 20 models failed, suggesting the limited successes in the main benchmark were likely superficial "transpilation" of token patterns. One hypothesis is that this difficulty may originate at the tokenizer level, where Lojban's unique morphology could be fragmented into meaningless sub-tokens, thereby impeding the learning of word-level semantics.
 
