@@ -1,24 +1,19 @@
 ---
-title: 'Benchmarking Large Language Models Against Prompt Formats: Experimental Methods and Results'
+title: 'Benchmarking LLM Sensitivity to Prompt Formats: A Contamination-Free Approach'
 authors: 'Fumio Miyata'
 abstract: |
-  The evaluation of Large Language Models (LLMs) is complicated by prompt sensitivity and data contamination, obscuring the distinction between genuine reasoning and rote memorization. This paper introduces a reproducible, contamination-free benchmark to measure how LLM responses vary with the prompt's language, style, and syntactic format. We employ a methodology using the constructed language Lojban—virtually absent from pre-training corpora—and a suite of novel symbolic prompting tasks to assess a model's ability to interpret unfamiliar formal systems. The results indicate three key findings: (1) Prompt strictness can elicit latent capabilities, but its effectiveness is limited to familiar languages. (2) Models exhibit a significant ceiling in algorithmic complexity, failing to produce bug-free code for novel, multi-step reasoning tasks. (3) A model's performance appears more indicative of sophisticated pattern matching than abstract reasoning. This work provides a comprehensive dataset and a rigorous framework for evaluating the generalization and true reasoning abilities of LLMs.
+  The evaluation of Large Language Models (LLMs) is complicated by prompt sensitivity and data contamination, obscuring the distinction between genuine reasoning and rote memorization. This paper introduces a reproducible, contamination-free benchmark to measure how LLM responses vary with the prompt's language, style, and syntactic format. Our methodology uses the constructed language Lojban—virtually absent from pre-training corpora—and a suite of novel symbolic prompting tasks to assess a model's ability to interpret unfamiliar formal systems. The results indicate three key findings: (1) prompt strictness can elicit latent capabilities, but its effectiveness is limited to familiar languages; (2) models exhibit a significant ceiling in algorithmic complexity, failing to produce bug-free code for novel tasks; and (3) performance appears more indicative of sophisticated pattern matching than abstract reasoning. This work provides a comprehensive dataset and a rigorous framework for evaluating the generalization and true reasoning abilities of LLMs.
 ---
 
 # Benchmarking Large Language Models Against Prompt Formats: Experimental Methods and Results
 
 ## 1. Introduction
 
-While Large Language Models (LLMs) show remarkable capabilities across a wide range of applications (Zhao, W. X., et al., 2023), two persistent challenges complicate the evaluation of their true abilities. The first is **Prompt Sensitivity**, where performance varies dramatically with minor changes to the input prompt. The second, **Data Contamination**, occurs when benchmark data is included in a model's training set (Vaugrante, et al., 2025). This contamination raises a critical question: are models genuinely reasoning, or are they merely demonstrating rote memorization? This issue, prevalent in many popular leaderboards, obscures understanding of a model's generalization capabilities on truly novel problems.
+Evaluating the capabilities of Large Language Models (LLMs) is a central challenge in modern AI research (Zhao, W. X., et al., 2023). While their performance is impressive, assessing it accurately is complicated by two well-documented issues: **Prompt Sensitivity**, where even subtle rephrasings can lead to vastly different outputs, and **Data Contamination**, where benchmark evaluation data is inadvertently included in a model's training set (Vaugrante, et al., 2025). This contamination is a critical flaw in many public benchmarks, as it makes it difficult to determine if a model is demonstrating genuine reasoning or simply recalling a memorized answer.
 
-This study introduces a new benchmark designed to assess LLM capabilities in a contamination-free environment. Our methodology incorporates two novel elements: (1) the use of **Lojban**, a constructed logical language with an unambiguous grammar virtually absent from pre-training corpora, and (2) **Symbolic Prompting**, our custom-designed suite of tasks using formats like S-expressions and JSON. This approach forces models to interpret and execute unfamiliar formal systems on the fly. It thereby allows us to measure genuine adaptation and algorithmic implementation skills rather than simple memory retrieval.
+The core of this problem is a gap in evaluation methodology. Existing benchmarks often cannot reliably test a model's ability to generalize to truly novel problems. To address this gap, our study introduces a new benchmark designed around the principle of data purity. We employ two primary strategies to create a contamination-free evaluation environment. First, we use the constructed language **Lojban**, a logical language with an unambiguous grammar virtually absent from pre-training corpora. Second, we developed **Symbolic Prompting**, a suite of custom tasks requiring the interpretation of formal rule sets in formats like S-expressions and JSON. This approach allows us to test a model's ability to adapt to unfamiliar formalisms, a closer proxy for genuine reasoning than performance on known benchmarks.
 
-This paper presents our reproducible experimental framework, the resulting dataset, and a detailed analysis of the findings. The results lead to three primary contributions:
-1.  They suggest that prompt strictness, particularly in specifying the output format, is crucial for eliciting latent model abilities, which lends support to the 'mirage' theory of emergent abilities (Schaeffer, et al., 2023).
-2.  They indicate a clear ceiling in current models' abilities to handle algorithmic complexity. While models can mimic the structure of an algorithm like backtracking, they systematically fail to produce bug-free implementations.
-3.  They provide strong evidence that LLMs process unfamiliar, syntactically unambiguous languages as a series of unknown tokens, suggesting their understanding is based on statistical pattern matching rather than abstract reasoning.
-
-The following sections detail the experimental environment, task designs, empirical results, and a discussion of their implications. Through this work, we provide a more accurate lens for evaluating LLMs and contribute to the development of more robust AI systems.
+In this paper, we present the experimental framework, the resulting dataset, and a detailed analysis of our findings. We report on a series of experiments applying these prompts to a wide range of open-source LLMs. Our results suggest that (1) prompt format and strictness are critical factors in eliciting model capabilities, (2) models exhibit a clear ceiling when faced with complex, novel algorithmic implementation tasks, and (3) their performance is more consistent with sophisticated pattern-matching than with abstract reasoning. These findings have significant implications for how we should interpret LLM capabilities and design future evaluation methods.
 
 ## 2. Experimental Environment
 
@@ -95,116 +90,110 @@ The following diagrams illustrate the workflows of the main tests in this benchm
 
 ![Figure 4: `einstein_token_test` Task](04.png){width=65%}
 
-## 4. Results
+## 4. Factual Results
 
-Across all experiments, several key trends emerged that highlight the inconsistent and format-dependent nature of LLM performance. While detailed success rates for all 30 runs of each test are available in Appendix A, this section summarizes the four principal findings.
+This section presents the primary quantitative and qualitative results from the benchmark experiments. It is intentionally descriptive, reserving all interpretation for Section 5. Full data tables for all 30 runs of each test are available in Appendix A.
 
-1.  **Language Sensitivity**: Models achieved high success rates on tasks prompted in familiar natural languages like English and Japanese. However, performance dropped precipitously on the same tasks when prompted in Lojban, an unambiguous but unfamiliar logical language.
+### 4.1. Outcome of the `Filtered List` Task
 
-2.  **Effectiveness of Symbolic Prompts**: For certain logical reasoning tasks (e.g., `diagnosis`), prompts formatted in unambiguous symbolic languages like S-expressions and JSON led to higher success rates for some models compared to natural language prompts.
+The `Filtered List` task, which required models to return a formatted string rather than code, was executed under two conditions.
+1.  **With an Ambiguous Prompt**: The initial prompt, which simply asked for a list, led most models to erroneously generate Python code that would produce the list.
+2.  **With a Strict Prompt**: When the prompt was modified with a strict constraint—"Return only the list string, not a program code"—a significant number of models, including `deepseek-r1:8b` and `llama3:8b`, achieved high success rates for prompts in English and Japanese. For the same task in Lojban, however, all models failed, even with the strict constraint.
 
-3.  **Algorithmic Implementation Failure**: In the `einstein_token_test`, the most complex task requiring on-the-fly grammar and algorithm learning, **no model succeeded**. This universal failure points to a significant limitation in the ability of LLMs to implement novel, bug-free algorithms from scratch.
+### 4.2. Observed Failure Pattern in the `einstein_token_test`
 
-4.  **Model Size vs. Performance**: The overall performance rankings (see Section 5.4) reveal that model size does not reliably predict success on the complex logical and algorithmic reasoning tasks presented in this benchmark. Several smaller models outperformed larger ones.
+The `einstein_token_test` confronted models with a multi-step reasoning task involving an unknown language. We observed a consistent, phased failure pattern:
+1.  Given only the puzzle in the token language, no model produced comprehensible output.
+2.  After adding the language's grammar rules to the prompt, some models attempted to generate Python code, but this code failed with `SyntaxError`.
+3.  With the further addition of a few-shot example demonstrating a backtracking algorithm, models like `llama3:8b` produced syntactically valid code. However, this code failed at runtime, producing `KeyError` exceptions or timing out.
 
-The following section provides a detailed analysis and discussion of the implications of each of these findings.
+### 4.3. Performance on Symbolic vs. Natural Language Prompts
+
+In logical reasoning tasks such as `diagnosis`, models were prompted with rulesets in both natural language and symbolic formats. For some models, prompts using unambiguous symbolic languages like S-expressions and JSON yielded higher success rates than their natural language counterparts.
+
+### 4.4. Overall Performance and Model Scaling
+
+The aggregated results across all tests did not show a clear correlation between model parameter count and overall performance. As detailed in the rankings in Section 5.4, several smaller models (e.g., `yi:6b`, `gemma3:4b`) outperformed larger ones.
 
 ## 5. Discussion
 
-This section analyzes the four principal findings presented in the Results section, arguing that the capabilities of LLMs are often the product of successfully elicited pattern-matching rather than abstract reasoning.
+In this section, we offer an interpretation of the factual results presented in Section 4, discussing their potential implications for understanding LLM capabilities and evaluation.
 
-### 5.1. The Role and Limits of Prompt Strictness
+### 5.1. Interpretation of Prompt Strictness and Familiarity
 
-The results indicate that prompt strictness plays a crucial role in eliciting correct model behavior, but that its effectiveness is contingent on linguistic familiarity. This effect was most evident in the `Filtered List` test. An initial, ambiguous instruction to "return a list" prompted most models to generate Python code, a behavior likely reflecting training data bias. When a strict constraint was added—"Return only the list string, not a program code"—performance improved dramatically for prompts in English and Japanese. This finding suggests that a model's latent capabilities can be unlocked, or 'elicited,' by removing ambiguity from the expected output format.
+The results from the `Filtered List` test suggest that prompt strictness can be a crucial factor in eliciting correct model behavior. The dramatic performance improvement after adding a simple constraint indicates that models may possess latent abilities that are only unlocked when the expected output format is unambiguously specified.
 
-The elicitation effect, however, disappeared when the language itself was unfamiliar. In Lojban, all models failed the `Filtered List` test, even with the strict prompt. This contrast indicates that the models did not leverage Lojban's unambiguous grammar for logical deduction. Instead, they appear to process it as an unknown sequence of tokens, failing to perform the semantic task of mapping Lojban's logic to a specific output format. Such an asymmetric capability is consistent with the "Reversal Curse," where models trained on "A is B" fail to infer "B is A" (Berglund, et al., 2023). Our findings suggest this is a broader problem of asymmetry between language understanding and logical execution.
+However, this elicitation effect appears to be contingent on linguistic familiarity. The universal failure on the Lojban version of the same task suggests that the models did not leverage the language's unambiguous grammar for logical deduction. A plausible interpretation is that the models process unfamiliar languages like Lojban as sequences of unknown tokens, making them unable to perform the semantic task of mapping the language's logic to a specific output format. This asymmetry is consistent with phenomena like the "Reversal Curse" (Berglund, et al., 2023) and points to a potential broader issue of language understanding versus logical execution.
 
-### 5.2. A Ceiling in Algorithmic Implementation
+### 5.2. Interpreting the Ceiling in Algorithmic Implementation
 
-The universal failure on the `Einstein Riddle - token_test` suggests a ceiling in the ability of current LLMs to implement novel, complex algorithms. The design of this test allowed for a phased analysis of this limitation:
-1.  **Grammar Learning**: Models began to generate syntactically aware code once provided with grammar rules for the unknown token language.
-2.  **Structural Mimicry**: The inclusion of a few-shot example of a backtracking algorithm enabled models like `llama3:8b` to successfully mimic its recursive structure.
-3.  **Implementation Failure**: At the final stage, all models failed. The resulting code, while structurally plausible, contained subtle but fatal implementation bugs.
-
-A qualitative analysis of code generated by `llama3:8b` highlights a common error: a failure to ensure state independence during recursion. The model passed the solution state (`assignments`) directly to recursive calls without copying it. This caused search branches to interfere with each other and led to `KeyError` exceptions or timeouts.
+The phased failure pattern in the `einstein_token_test` may indicate a ceiling in the ability of current LLMs to implement novel, complex algorithms. The final stage of failure—runtime errors in syntactically plausible code—is particularly revealing. A qualitative analysis of the code generated by `llama3:8b` highlights a potential cause: a failure to ensure state independence during recursion.
 
 ```python
 # Schematic excerpt of code generated by llama3:8b
 def solve_puzzle(rules, assignments):
     # ...
     for value in domain_values(var):
-        # Fatal Flaw: The dictionary is mutated directly,
-        # leaking state across independent search paths.
+        # The dictionary is mutated directly,
+        # potentially leaking state across search paths.
         assignments[var] = value 
         if is_consistent(assignments, rules):
-            # The next recursive call receives the mutated state.
             result = solve_puzzle(rules, assignments)
-            if result is not None:
-                return result
-    # The backtracking step to undo the mutation is missing.
+            # ...
+    # A backtracking step to undo the mutation is missing.
     return None
 ```
+One interpretation of this error is that while an LLM can imitate the superficial structure of an algorithm (loops, recursion), it may not be grasping the underlying logical requirements, such as state isolation in backtracking. This finding aligns with reported systematic failures in compositional reasoning and suggests that model abilities in this area may be confined to sophisticated pattern matching. It also contrasts with findings on Chain-of-Thought prompting, where including step-by-step reasoning can improve performance on complex tasks (Wei, et al., 2022a), indicating that the format of reasoning is highly consequential.
 
-This type of error indicates that while an LLM can imitate the **superficial structure** of an algorithm (e.g., loops and recursion), it may not grasp the underlying **logical requirements** for that algorithm to function, such as state isolation in backtracking. This finding aligns with reported systematic failures in compositional reasoning and suggests that model abilities in this area may be confined to sophisticated pattern matching rather than abstract algorithmic understanding.
+### 5.3. Interpreting the Effectiveness of Symbolic Interfaces
 
-### 5.3. Effectiveness of Symbolic Prompts as a Reasoning Interface
+The higher success rates on certain tasks when using symbolic prompts (S-expressions, JSON) suggest that these formats can serve as a more effective computational interface for LLMs in logically structured problems. Two factors may contribute to this: (1) **Syntactic Unambiguity**, which could reduce a model's interpretive overhead, and (2) **Token Efficiency**, which allows more complex logic to be represented concisely. This finding lends support to the potential value of hybrid symbolic-neural approaches for creating more reliable systems (Marcus, 2020).
 
-For the `diagnosis` and `einstein` tasks, prompts using unambiguous symbolic languages like S-expressions and JSON resulted in higher success rates for some models compared to natural language equivalents. This outcome suggests that for problems with a clear logical structure, symbolic formats can serve as an effective computational interface for LLMs. This success may be attributable to two factors:
+### 5.4. Interpreting Overall Performance and Lojban Failure
 
-*   **Syntactic Unambiguity**: Formal grammars eliminate the interpretive ambiguity of natural language. An S-expression like `(or (and A B) C)` has a single, precise syntax tree, which may reduce a model's cognitive overhead and allow it to grasp the relationships between rules more structurally.
-*   **Token Efficiency**: Symbolic languages can often express complex logical relationships more concisely than natural language, which allows more information to be processed within a finite context window.
-
-This finding lends support to the value of hybrid approaches that combine the strengths of LLMs with the rigor of symbolic reasoning to overcome some of the inherent limitations of deep learning models (Marcus, 2020).
-
-### 5.4. Performance Analysis: Model Size, Ranking, and Lojban
-
-The results also call into question the assumption that larger models are universally more capable. The overall performance ranking (Figure 5) shows that `yi:6b` and `gemma3:4b` outperformed several larger models on this suite of tests. This may indicate that architectural differences and training data composition play a more significant role than parameter count alone in the specific logical reasoning capabilities measured here.
+The lack of a clear correlation between model size and performance on our benchmark suggests that factors like architecture and training data composition may play a more significant role than parameter count alone for these specific reasoning tasks.
 
 ![Figure 5: Overall Performance Ranking. Average success rate across all tasks based on the large-scale experiment.](05.png){width=65%}
 
-The consistent, poor performance on Lojban tasks provides further evidence that current LLMs may rely on pattern recognition over abstract reasoning. To investigate this, a separate suite of basic Lojban tasks was run, including simple translation. The outcome was notable: all 20 evaluated models failed every one of these foundational tasks. This result strongly suggests that the few successes seen in the main benchmark were not due to an understanding of Lojban's logic, but rather a superficial "transpilation" of token patterns.
+Furthermore, the consistent and near-total failure on Lojban tasks provides additional evidence that model performance may be rooted in pattern recognition rather than abstract reasoning. In a separate suite of basic Lojban translation tasks, all 20 models failed, suggesting the limited successes in the main benchmark were likely superficial "transpilation" of token patterns. One hypothesis is that this difficulty may originate at the tokenizer level, where Lojban's unique morphology could be fragmented into meaningless sub-tokens, thereby impeding the learning of word-level semantics.
 
-This difficulty with Lojban may originate at the tokenizer level. A standard Byte-Pair Encoding (BPE) tokenizer, trained on mainstream languages, would likely fragment Lojban's unique morphology (e.g., `fancu`, `namcu`) into meaningless sub-tokens. Such inefficient tokenization could fundamentally impede a model's ability to learn word-level semantics, thereby preventing a higher-order understanding of syntax or logic.
+## 6. Limitations
 
-## 6. Conclusion
+This study's focus on lightweight, open-source models invites a comparative analysis with larger models (e.g., GPT-4, Claude 3). The algorithmic tests could also be expanded beyond backtracking to other complex tasks like dynamic programming to probe the generality of our findings. Finally, the use of deterministic generation parameters (`temperature: 0.0`) leaves room to explore how stochastic settings affect performance.
 
-This paper introduced a novel, contamination-free benchmark to evaluate how LLM responses are affected by prompt format. By using the constructed language Lojban and a series of custom symbolic reasoning tasks, this study tested the limits of model reasoning and implementation abilities.
+## 7. Conclusion
 
-Our findings lead to three primary conclusions. First, while prompt strictness can be an effective tool for eliciting latent capabilities, its utility appears limited to familiar linguistic contexts. Second, current LLMs seem to exhibit a ceiling in complex algorithmic implementation; they can mimic superficial structures but may not grasp the underlying logic required for bug-free code. Third, the models' difficulty with Lojban, contrasted with their success on some symbolic prompts, suggests that their capabilities may be rooted more in sophisticated pattern matching than in abstract reasoning. These observations lend further support to the 'mirage' theory of emergent abilities (Schaeffer, et al., 2023).
+This paper presented a novel, contamination-free benchmark to probe the reasoning and implementation abilities of LLMs. Our experiments yielded several key observations: the effectiveness of prompt strictness appears contingent on linguistic familiarity; models may exhibit a ceiling in complex algorithmic implementation; and overall performance seems more rooted in pattern matching than abstract reasoning. These observations lend further support to the 'mirage' theory (Schaeffer, et al., 2023), which posits that such capabilities are a predictable outcome of scale, rather than an unpredictable 'emergence' of new abilities (Wei, et al., 2022b). We hope this framework contributes to a more nuanced evaluation of LLM capabilities and informs the future design of models that can reason more robustly.
 
-This study's limitations open direct avenues for future research. The focus on lightweight, open-source models invites a comparative analysis with larger models (e.g., GPT-4, Claude 3). The algorithmic tests could also be expanded beyond backtracking to other complex tasks like dynamic programming to probe the generality of our findings. Finally, the use of deterministic generation parameters (`temperature: 0.0`) leaves room to explore how stochastic settings affect performance.
-
-We hope that the experimental framework and dataset provided in this paper will contribute to future research on the true capabilities of LLMs and aid in the construction of more reliable AI systems.
-
-## 7. Ethical Considerations
+## 8. Ethical Considerations
 
 This study highlights significant performance disparities in LLMs when prompted with non-mainstream languages like Lojban and Esperanto. These results suggest that current models are predominantly trained on data from mainstream languages such as English, creating a bias that risks the inadequate representation of other languages and cultures. From an ethical standpoint, our work underscores the need for greater diversity and inclusivity in the datasets used for future model development.
 
-## 8. References
+## 9. References
 
 Anam, M. (2025). *Prompt Engineering and the Effectiveness of Large Language Models in Enhancing Human Productivity*. arXiv preprint arXiv:2507.18638.
 
-Berglund, L., et al. (2023). *The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A"*. arXiv preprint arXiv:2309.12288.
+Berglund, L., et al. (2023). The Reversal Curse: LLMs trained on "A is B" fail to learn "B is A". In *Proceedings of the 12th International Conference on Learning Representations (ICLR 2024)*.
 
-Besta, M., et al. (2023). *Graph of Thoughts: Solving Elaborate Problems with Large Language Models*. arXiv preprint arXiv:2308.09687.
+Besta, M., et al. (2023). Graph of Thoughts: Solving Elaborate Problems with Large Language Models. In *Proceedings of the 12th International Conference on Learning Representations (ICLR 2024)*.
 
-Gao, L., et al. (2022). *Program-Aided Language Models*. arXiv preprint arXiv:2211.10435.
+Gao, L., et al. (2022). Program-Aided Language Models. In *Proceedings of the 40th International Conference on Machine Learning (ICML)*, vol. 202, pp. 10764-10799. PMLR.
 
 Marcus, G. (2020). *The Next Decade in AI: Four Steps Towards Robust Artificial Intelligence*. arXiv preprint arXiv:2002.06177.
 
 Ronanki, S., et al. (2025). *Prompt Engineering Guidelines for Using Large Language Models in Requirements Engineering*. arXiv preprint arXiv:2507.03405.
 
-Schaeffer, R., et al. (2023). *Are Emergent Abilities of Large Language Models a Mirage?*. arXiv preprint arXiv:2304.15004.
+Schaeffer, R., et al. (2023). Are Emergent Abilities of Large Language Models a Mirage?. In *Advances in Neural Information Processing Systems 36 (NeurIPS 2023)*.
 
 Thomas, A. W., et al. (2023). *Unsolvable Problems for Large Language Models: A Formal Language Approach*. arXiv preprint arXiv:2310.16799.
 
-Vaugrante, L., et al. (2025). *Prompt Engineering Techniques for Language Model Reasoning Lack Replicability*. In *Transactions on Machine Learning Research*.
+Vaugrante, L., et al. (2025). Prompt Engineering Techniques for Language Model Reasoning Lack Replicability. In *Transactions on Machine Learning Research*.
 
-Wei, J., et al. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. In *Advances in Neural Information Processing Systems 35*.
+Wei, J., et al. (2022a). Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. In *Advances in Neural Information Processing Systems 35 (NeurIPS 2022)*, pp. 24824–24837.
 
-Wei, J., et al. (2022). *Emergent Abilities of Large Language Models*. arXiv preprint arXiv:2206.07682.
+Wei, J., et al. (2022b). Emergent Abilities of Large Language Models. In *Transactions on Machine Learning Research*.
 
-Yao, S., et al. (2023). *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. arXiv preprint arXiv:2305.10601.
+Yao, S., et al. (2023). Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In *Advances in Neural Information Processing Systems 36 (NeurIPS 2023)*.
 
 Zhao, W. X., et al. (2023). *A Survey of Large Language Models*. arXiv preprint arXiv:2303.18223.
 
